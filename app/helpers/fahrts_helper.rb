@@ -1,0 +1,2 @@
+module FahrtsHelper
+end

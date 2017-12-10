@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  von: MyString
+  nach: MyString
+  dauer: 1
+  preisProMitfahrer: 1
+  maxMitfahrer: 1
+  account_id: 
+
+two:
+  von: MyString
+  nach: MyString
+  dauer: 1
+  preisProMitfahrer: 1
+  maxMitfahrer: 1
+  account_id: 

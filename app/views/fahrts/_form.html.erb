@@ -1,0 +1,41 @@
+<%= form_for(@fahrt) do |f| %>
+  <% if @fahrt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fahrt.errors.count, "error") %> prohibited this fahrt from being saved:</h2>
+
+      <ul>
+      <% @fahrt.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :von %><br>
+    <%= f.text_field :von %>
+  </div>
+  <div class="field">
+    <%= f.label :nach %><br>
+    <%= f.text_field :nach %>
+  </div>
+  <div class="field">
+    <%= f.label :dauer %><br>
+    <%= f.number_field :dauer %>
+  </div>
+  <div class="field">
+    <%= f.label :preisProMitfahrer %><br>
+    <%= f.number_field :preisProMitfahrer %>
+  </div>
+  <div class="field">
+    <%= f.label :maxMitfahrer %><br>
+    <%= f.number_field :maxMitfahrer %>
+  </div>
+  <div class="field">
+    <%= f.label :account_id %><br>
+    <%= f.text_field :account_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

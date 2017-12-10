@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171210200706) do
+ActiveRecord::Schema.define(version: 20171210200837) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "vorname"
@@ -24,5 +24,18 @@ ActiveRecord::Schema.define(version: 20171210200706) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
+
+  create_table "fahrts", force: :cascade do |t|
+    t.string   "von"
+    t.string   "nach"
+    t.integer  "dauer"
+    t.integer  "preisProMitfahrer"
+    t.integer  "maxMitfahrer"
+    t.integer  "account_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "fahrts", ["account_id"], name: "index_fahrts_on_account_id"
 
 end

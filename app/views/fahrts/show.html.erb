@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Von:</strong>
+  <%= @fahrt.von %>
+</p>
+
+<p>
+  <strong>Nach:</strong>
+  <%= @fahrt.nach %>
+</p>
+
+<p>
+  <strong>Dauer:</strong>
+  <%= @fahrt.dauer %>
+</p>
+
+<p>
+  <strong>Preispromitfahrer:</strong>
+  <%= @fahrt.preisProMitfahrer %>
+</p>
+
+<p>
+  <strong>Maxmitfahrer:</strong>
+  <%= @fahrt.maxMitfahrer %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @fahrt.account %>
+</p>
+
+<%= link_to 'Edit', edit_fahrt_path(@fahrt) %> |
+<%= link_to 'Back', fahrts_path %>
