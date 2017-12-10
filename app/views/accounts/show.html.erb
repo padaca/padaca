@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vorname:</strong>
+  <%= @account.vorname %>
+</p>
+
+<p>
+  <strong>Nachname:</strong>
+  <%= @account.nachname %>
+</p>
+
+<p>
+  <strong>Geschlecht:</strong>
+  <%= @account.geschlecht %>
+</p>
+
+<p>
+  <strong>Istmitarbeiter:</strong>
+  <%= @account.istMitarbeiter %>
+</p>
+
+<p>
+  <strong>Fahrerbewertung:</strong>
+  <%= @account.fahrerbewertung %>
+</p>
+
+<p>
+  <strong>Mitfahrerbewertung:</strong>
+  <%= @account.mitfahrerbewertung %>
+</p>
+
+<p>
+  <strong>Standort:</strong>
+  <%= @account.standort %>
+</p>
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>
