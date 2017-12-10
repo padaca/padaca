@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171210200837) do
+ActiveRecord::Schema.define(version: 20171210201339) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "vorname"
@@ -37,5 +37,18 @@ ActiveRecord::Schema.define(version: 20171210200837) do
   end
 
   add_index "fahrts", ["account_id"], name: "index_fahrts_on_account_id"
+
+  create_table "mitfahrers", force: :cascade do |t|
+    t.integer  "fahrt_id"
+    t.integer  "account_id"
+    t.integer  "mitfahrerbewertung"
+    t.integer  "fahrerbewertung"
+    t.boolean  "istBestatigt"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "mitfahrers", ["account_id"], name: "index_mitfahrers_on_account_id"
+  add_index "mitfahrers", ["fahrt_id"], name: "index_mitfahrers_on_fahrt_id"
 
 end

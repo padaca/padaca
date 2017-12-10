@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fahrt_id: 
+  account_id: 
+  mitfahrerbewertung: 1
+  fahrerbewertung: 1
+  istBestatigt: false
+
+two:
+  fahrt_id: 
+  account_id: 
+  mitfahrerbewertung: 1
+  fahrerbewertung: 1
+  istBestatigt: false

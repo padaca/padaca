@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Mitfahrers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fahrt</th>
+      <th>Account</th>
+      <th>Mitfahrerbewertung</th>
+      <th>Fahrerbewertung</th>
+      <th>Istbestatigt</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mitfahrers.each do |mitfahrer| %>
+      <tr>
+        <td><%= mitfahrer.fahrt %></td>
+        <td><%= mitfahrer.account %></td>
+        <td><%= mitfahrer.mitfahrerbewertung %></td>
+        <td><%= mitfahrer.fahrerbewertung %></td>
+        <td><%= mitfahrer.istBestatigt %></td>
+        <td><%= link_to 'Show', mitfahrer %></td>
+        <td><%= link_to 'Edit', edit_mitfahrer_path(mitfahrer) %></td>
+        <td><%= link_to 'Destroy', mitfahrer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mitfahrer', new_mitfahrer_path %>

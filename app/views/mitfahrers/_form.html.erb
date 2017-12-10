@@ -1,0 +1,37 @@
+<%= form_for(@mitfahrer) do |f| %>
+  <% if @mitfahrer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mitfahrer.errors.count, "error") %> prohibited this mitfahrer from being saved:</h2>
+
+      <ul>
+      <% @mitfahrer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fahrt_id %><br>
+    <%= f.text_field :fahrt_id %>
+  </div>
+  <div class="field">
+    <%= f.label :account_id %><br>
+    <%= f.text_field :account_id %>
+  </div>
+  <div class="field">
+    <%= f.label :mitfahrerbewertung %><br>
+    <%= f.number_field :mitfahrerbewertung %>
+  </div>
+  <div class="field">
+    <%= f.label :fahrerbewertung %><br>
+    <%= f.number_field :fahrerbewertung %>
+  </div>
+  <div class="field">
+    <%= f.label :istBestatigt %><br>
+    <%= f.check_box :istBestatigt %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

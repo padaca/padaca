@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fahrt:</strong>
+  <%= @mitfahrer.fahrt %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @mitfahrer.account %>
+</p>
+
+<p>
+  <strong>Mitfahrerbewertung:</strong>
+  <%= @mitfahrer.mitfahrerbewertung %>
+</p>
+
+<p>
+  <strong>Fahrerbewertung:</strong>
+  <%= @mitfahrer.fahrerbewertung %>
+</p>
+
+<p>
+  <strong>Istbestatigt:</strong>
+  <%= @mitfahrer.istBestatigt %>
+</p>
+
+<%= link_to 'Edit', edit_mitfahrer_path(@mitfahrer) %> |
+<%= link_to 'Back', mitfahrers_path %>
