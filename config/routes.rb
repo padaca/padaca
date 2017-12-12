@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  devise_for :accounts
+
   resources :mitfahrers
   resources :fahrts
   resources :accounts
