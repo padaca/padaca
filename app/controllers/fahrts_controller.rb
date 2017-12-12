@@ -14,7 +14,7 @@ class FahrtsController < ApplicationController
 
   # GET /fahrts/new
   def new
-    @fahrt = Fahrt.new
+    @fahrt = Fahrt.new(account: current_account)
   end
 
   # GET /fahrts/1/edit
