@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>eMail</th>
       <th>Vorname</th>
       <th>Nachname</th>
       <th>Geschlecht</th>
@@ -19,6 +20,7 @@
   <tbody>
     <% @accounts.each do |account| %>
       <tr>
+        <td><%= account.email %></td>
         <td><%= account.vorname %></td>
         <td><%= account.nachname %></td>
         <td><%= account.geschlecht %></td>
