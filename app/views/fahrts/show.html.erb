@@ -30,5 +30,7 @@
   <%= @fahrt.account %>
 </p>
 
+<%= link_to 'Mitfahren', new_mitfahrer_path(fahrt: @fahrt) %>
+
 <%= link_to 'Edit', edit_fahrt_path(@fahrt) %> |
 <%= link_to 'Back', fahrts_path %>
