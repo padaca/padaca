@@ -14,7 +14,7 @@ class MitfahrersController < ApplicationController
 
   # GET /mitfahrers/new
   def new
-    @mitfahrer = Mitfahrer.new
+    @mitfahrer = Mitfahrer.new(fahrt_id: params[:fahrt])
   end
 
   # GET /mitfahrers/1/edit
