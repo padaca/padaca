@@ -1,5 +1,5 @@
 ## Grundlagen
-rails generate scaffold Account vorname:string nachname:string geschlecht:string istMitarbeiter:boolean fahrerbewertung:number mitfahrerbewertung:number standort:string
+rails generate scaffold Account vorname:string nachname:string istWeiblich:boolean istMitarbeiter:boolean fahrerbewertung:number mitfahrerbewertung:number standort:string
 rails generate scaffold Fahrt von:string nach:string dauer:number preisProMitfahrer:number maxMitfahrer:number account_id:integer
 rails generate scaffold Mitfahrer fahrt_id:integer account_id:integer mitfahrerbewertung:number fahrerbewertung:number istBestatigt:boolean zahlung_id:integer
 
