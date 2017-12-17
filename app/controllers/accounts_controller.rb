@@ -1,5 +1,6 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
+  before_action 
 
   # GET /accounts
   # GET /accounts.json
@@ -19,6 +20,9 @@ class AccountsController < ApplicationController
 
   # GET /accounts/1/edit
   def edit
+    unless is_my_account?(params[:id])
+      redirect_to edit_account_path(current_account.id)
+    end 
   end
 
   # POST /accounts
@@ -70,5 +74,10 @@ class AccountsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_params
       params.require(:account).permit(:vorname, :nachname, :geschlecht, :istMitarbeiter, :fahrerbewertung, :mitfahrerbewertung, :standort)
+    end
+
+    # Checks whether the given id is equal to the current_account.id
+    def is_my_account?(id)
+      return id.to_i == current_account.id
     end
 end

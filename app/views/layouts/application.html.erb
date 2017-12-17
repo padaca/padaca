@@ -11,6 +11,7 @@
     <%= current_account %>
     <%= link_to 'Logout', destroy_account_session_path, method: :delete %>
     <%= link_to "Change your password", edit_account_registration_path %>
+    <%= link_to "Update your account", edit_account_path(current_account.id) %>
 <% else %>
   <%= link_to 'Login', new_account_session_path %>
 <% end %>
