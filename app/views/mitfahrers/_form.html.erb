@@ -11,26 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <%# Nicht benötigt, da ja nur über die Fahrten neue Mitfahrer erstellt werden %>
+  <!--% <div class="field">
     <%= f.label :fahrt_id %><br>
     <%= f.text_field :fahrt_id %>
-  </div>
+  </div> %-->
+  <h2>
+    <%= @mitfahrer.fahrt.to_s%>
+  </h2>
   <div class="field">
     <%= f.label :account_id %><br>
     <%= f.text_field :account_id %>
   </div>
-  <div class="field">
-    <%= f.label :mitfahrerbewertung %><br>
-    <%= f.number_field :mitfahrerbewertung %>
-  </div>
-  <div class="field">
-    <%= f.label :fahrerbewertung %><br>
-    <%= f.number_field :fahrerbewertung %>
-  </div>
-  <div class="field">
-    <%= f.label :istBestatigt %><br>
-    <%= f.check_box :istBestatigt %>
-  </div>
+  <% if current_account.id == @mitfahrer.account.id%>
+    <div class="field">
+      <%= f.label :fahrerbewertung %><br>
+      <%= f.number_field :fahrerbewertung %>
+    </div>
+  <% end %>
+  <% if current_account.id == @mitfahrer.fahrt.account.id%>
+    <div class="field"> 
+      <%= f.label :mitfahrerbewertung %><br>
+      <%= f.number_field :mitfahrerbewertung %>
+    </div>
+    <div class="field">
+      <%= f.label :istBestatigt %><br>
+      <%= f.check_box :istBestatigt %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

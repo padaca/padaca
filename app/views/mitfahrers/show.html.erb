@@ -2,7 +2,9 @@
 
 <p>
   <strong>Fahrt:</strong>
-  <%= @mitfahrer.fahrt %>
+  <% if @mitfahrer.fahrt %>
+    <%= link_to @mitfahrer.fahrt, fahrt_url(@mitfahrer.fahrt.id) %>
+  <% end %>
 </p>
 
 <p>

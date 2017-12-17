@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <strong>Fahrer:</strong>
+  <%= link_to @fahrt.account, account_url(@fahrt.account) %>
+</p>
+
+<p>
   <strong>Dauer:</strong>
   <%= @fahrt.dauer %>
 </p>
@@ -26,11 +31,23 @@
 </p>
 
 <p>
-  <strong>Account:</strong>
-  <%= @fahrt.account %>
+  <strong>Anzahl bestätigter Mitfahrer:</strong>
+  <%= @total %>
 </p>
 
-<%= link_to 'Mitfahren', new_mitfahrer_path(fahrt: @fahrt) %>
+<p>
+  <strong>Anfragen:</strong>
+  <% @anfragen.each do |anfrage| %>
+    <% if anfrage.account %>
+      <%= link_to anfrage.account, account_url(anfrage.account.id) %>
+    <% end %>
+  <% end %>
+</p>
+
+
+<% unless @fahrt.account == current_account %> 
+  <%= link_to 'Mitfahren', new_mitfahrer_path(fahrt: @fahrt) %>
+<% end %>
 
 <%= link_to 'Edit', edit_fahrt_path(@fahrt) %> |
 <%= link_to 'Back', fahrts_path %>

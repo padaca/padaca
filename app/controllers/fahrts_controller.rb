@@ -10,6 +10,8 @@ class FahrtsController < ApplicationController
   # GET /fahrts/1
   # GET /fahrts/1.json
   def show
+    @total = Mitfahrer.where(:fahrt_id => @fahrt.id, :istBestatigt => true).select("COUNT(*) AS total").first.total
+    @anfragen = Mitfahrer.where(:fahrt_id => @fahrt.id, :istBestatigt => false)
   end
 
   # GET /fahrts/new
