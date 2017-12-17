@@ -20,7 +20,7 @@ class AccountsController < ApplicationController
 
   # GET /accounts/1/edit
   def edit
-    unless is_my_account?(params[:id])
+    unless is_my_account?(params[:id]) || current_account.istMitarbeiter
       redirect_to edit_account_path(current_account.id)
     end 
   end
