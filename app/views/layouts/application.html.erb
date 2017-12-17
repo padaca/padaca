@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if account_signed_in? %>
+    <%= current_account %>
+    <%= link_to 'Logout', destroy_account_session_path, method: :delete %>
+    <%= link_to "Change your password", edit_account_registration_path %>
+<% else %>
+  <%= link_to 'Login', new_account_session_path %>
+<% end %>
 
 <%= yield %>
 

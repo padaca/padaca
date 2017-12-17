@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
 
-  devise_for :accounts
+  devise_for :accounts do
+    get '/accounts/sign_out' => 'devise/sessions#destroy'
+  end
+
   devise_scope :user do
-    authenticated :user do
+    authenticated do
       root 'fahrts#index', as: :authenticated_root
     end
   
     unauthenticated do
-      # root 'devise/sessions#new', as: :unauthenticated_root
       root :to => redirect("/accounts/sign_in")
     end
   end
