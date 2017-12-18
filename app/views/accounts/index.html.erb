@@ -13,7 +13,8 @@
       <th>Fahrerbewertung</th>
       <th>Mitfahrerbewertung</th>
       <th>Standort</th>
-      <th colspan="3"></th>
+      <th>IsActive</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -28,9 +29,19 @@
         <td><%= account.fahrerbewertung %></td>
         <td><%= account.mitfahrerbewertung %></td>
         <td><%= account.standort %></td>
+        <td><%= account.is_active %></td>
         <td><%= link_to 'Show', account %></td>
-        <td><%= link_to 'Edit', edit_account_path(account) %></td>
-        <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_account.id == account.id %>
+          <td><%= link_to 'Edit', edit_account_path(account) %></td>
+        <% end %>
+        <% if current_account.istMitarbeiter && current_account.id != account.id %>
+          <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if account.is_active%>
+            <td><%=link_to "deactivate", deactivate_path(account_id: account), method: :post, data: { confirm: "Are you sure?" } %></td>
+          <% else %>
+            <td><%=link_to "activate", activate_path(account_id: account), method: :post, data: { confirm: "Are you sure?" } %></td>
+          <% end %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

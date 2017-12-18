@@ -8,4 +8,12 @@ class Account < ActiveRecord::Base
     "#{self.email}"
   end
 
+  def activate_account!   
+    update_attribute :is_active, true 
+  end
+  
+  def deactivate_account!   
+    update_attribute :is_active, false 
+  end
+
 end

@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     end
   end
 
+  post "/deactivate", to: "accounts#deactivate"
+  post "/activate", to: "accounts#activate"
+
   resources :mitfahrers
   resources :fahrts
   resources :accounts

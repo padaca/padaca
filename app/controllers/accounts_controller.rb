@@ -65,6 +65,26 @@ class AccountsController < ApplicationController
     end
   end
 
+  def deactivate
+    acc = Account.find(params[:account_id])
+    if current_account.istMitarbeiter
+      acc.deactivate_account!
+      redirect_to accounts_path 
+    else
+      redirect_to :back
+    end
+  end
+
+  def activate
+    acc = Account.find(params[:account_id])
+    if current_account.istMitarbeiter
+      acc.activate_account!
+      redirect_to accounts_path 
+    else
+      redirect_to :back
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_account
