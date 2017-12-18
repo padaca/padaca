@@ -4,7 +4,8 @@ class MitfahrersController < ApplicationController
   # GET /mitfahrers
   # GET /mitfahrers.json
   def index
-    @mitfahrers = Mitfahrer.all
+    # Liste der den aktuellen User betreffenden Mitfahrten
+    @mitfahrers = Mitfahrer.where(:account_id => current_account.id)
   end
 
   # GET /mitfahrers/1

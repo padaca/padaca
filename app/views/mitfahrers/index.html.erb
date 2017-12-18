@@ -23,8 +23,10 @@
         <td><%= mitfahrer.fahrerbewertung %></td>
         <td><%= mitfahrer.istBestatigt %></td>
         <td><%= link_to 'Show', mitfahrer %></td>
-        <td><%= link_to 'Edit', edit_mitfahrer_path(mitfahrer) %></td>
-        <td><%= link_to 'Destroy', mitfahrer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_account.id == mitfahrer.account.id%>
+          <td><%= link_to 'Edit', edit_mitfahrer_path(mitfahrer) %></td>
+          <td><%= link_to 'Destroy', mitfahrer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
