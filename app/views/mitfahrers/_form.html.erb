@@ -12,16 +12,17 @@
   <% end %>
 
   <%# Nicht benötigt, da ja nur über die Fahrten neue Mitfahrer erstellt werden %>
-  <!--% <div class="field">
-    <%= f.label :fahrt_id %><br>
-    <%= f.text_field :fahrt_id %>
-  </div> %-->
+  <!-- <div class="field"> -->
+    <!-- <%= f.label :fahrt_id %><br> -->
+    <%= f.hidden_field :fahrt_id %>
+  <!-- </div> -->
   <h2>
     <%= @mitfahrer.fahrt.to_s%>
   </h2>
   <div class="field">
     <%= f.label :account_id %><br>
-    <%= f.text_field :account_id %>
+    <%= f.hidden_field :account_id %>
+    <%= @mitfahrer.account.to_s%>
   </div>
   <% if current_account.id == @mitfahrer.account.id%>
     <div class="field">

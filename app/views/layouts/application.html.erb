@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= link_to 'Fahrts', fahrts_path%>
+<%= link_to 'Mitfahrer', mitfahrers_path%>
+<%= link_to 'Accounts', accounts_path%>
+<br>
 <% if account_signed_in? %>
     <%= link_to current_account, account_url(current_account.id) %>
     <%= link_to 'Logout', destroy_account_session_path, method: :delete %>

@@ -39,7 +39,7 @@
   <strong>Anfragen:</strong>
   <% @anfragen.each do |anfrage| %>
     <% if anfrage.account %>
-      <%= link_to anfrage.account, account_url(anfrage.account.id) %>
+      <%= link_to anfrage.account.to_s, edit_mitfahrer_path(anfrage.id) %>
     <% end %>
   <% end %>
 </p>
