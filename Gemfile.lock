@@ -87,10 +87,7 @@ GEM
       mini_portile2 (~> 2.3.0)
     nokogiri (1.8.1-x86-mingw32)
       mini_portile2 (~> 2.3.0)
-<<<<<<< HEAD
     orm_adapter (0.5.0)
-=======
->>>>>>> CO Tests
     rack (1.6.8)
     rack-test (0.6.3)
       rack (>= 1.0)
