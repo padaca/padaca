@@ -11,18 +11,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="wrapper">
 <div class="header">
-<div class="hlist">
+<div class="lists">
 <ul>  
   <li><%= link_to 'Fahrts', fahrts_path%></li>
   <li><%= link_to 'Mitfahrer', mitfahrers_path%> </li>
   <li><%= link_to 'Accounts', accounts_path%></li>
 </ul>
 </div>
-</br>
-<div class="signedin">
+<div class="login">
+<ul> 
 <% if account_signed_in? %>
-<ul>  
 <li><%= link_to current_account, account_url(current_account.id) %></li>
 <li><%= link_to 'Logout', destroy_account_session_path, method: :delete %></li>
 <li><%= link_to "Change your password", edit_account_registration_path %></li>
@@ -31,10 +31,14 @@
 <li><%= link_to 'Login', new_account_session_path %>
 <% end %>
 </div>
+
 </div>
 <div class="content">
+
 <%= yield %>
+
 </div>
 
+</div>
 </body>
 </html>

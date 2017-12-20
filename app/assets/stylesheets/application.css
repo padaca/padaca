@@ -14,92 +14,49 @@
  *= require_self
  */
  .wrapper {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    grid-template-areas: 
-      "header header header"
-      "content content content"
-      "content content content"
-      "footer footer footer";
-      grid-gap: 10px;
-       background-color: grey;
-       border: 1px solid black;
-       min-height: 100%;
-       height:auto !important;
-       height:100%;
-       min-width: 100%;
-       width:auto !important;
-       width: 100%;
-  }
+  display:grid;
+  background:lightblue;
+  grid-template-columns:1fr;
+  grid-template-rows:2fr 8fr 2fr;
+ }
+
+ .wrapper .header{
+  display:grid;
+  grid-template-columns:7fr 3fr;
   
-  @media only screen and (max-width: 500px)  {
-    .wrapper {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    grid-template-areas: 
-      "header header"
-      "content content"
-      "content content"
-      "footer footer";
-  }
+  background:yellowgreen;
+ }
+
+ .wrapper .header .lists{
+  background:lightcoral;
+ }
+
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+ }
+
+ li {
+  float: left;
 }
 
-  .header {
-    grid-area: header;
-    background-color: lightblue;
-    
-  }
-
-  .header ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-size: 15px;
-
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-.header li {
-    float: left;
+ .wrapper .header .login{
+  background: lightpink;
+ }
+ 
+.wrapper .content{
+  background: lightyellow;
 }
-
-.header li {
-    display: block;
-    text-align: center;
-    padding: 10px 10px;
-    text-decoration: none;
-}
-
-.header li a:hover {
-    background-color: #111;
-}
-
-.header .signedin{
-  width:200px;
-  padding: 10px 10px;
-  background:#ffffcc;
-  border:1px solid #fff;
-  position:absolute;
-  right:0;
-  top:5px;
-}
-
-  .content {
-   grid-area: content;
-     background-color: yellowgreen;
-     min-height: 70%;
-     height:auto !important;
-     height:70%;
-  }
-  .footer{
-      grid-area: footer;
-     background-color: lightblue;
-     min-height: 10%;
-     height:auto !important;
-     height:10%;
-  }
 
   .table-scrollable {
     width: 100%;
