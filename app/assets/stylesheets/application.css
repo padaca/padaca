@@ -56,6 +56,11 @@ li a {
  
 .wrapper .content{
   background: lightyellow;
+  align-items: center;
+}
+
+.wrapper .footer{
+  background: lightgray;
 }
 
   .table-scrollable {
@@ -74,4 +79,9 @@ li a {
     border-radius: 8px;
     border: 3px solid #fff;
     background-color: rgba(0, 0, 0, .3);
+  }
+
+  @media (max-width: 400px) {
+    .wrapper .header{
+      grid-template-columns:1fr;
   }
