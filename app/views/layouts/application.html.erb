@@ -11,20 +11,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to 'Fahrts', fahrts_path%>
-<%= link_to 'Mitfahrer', mitfahrers_path%>
-<%= link_to 'Accounts', accounts_path%>
-<br>
+<div class="header">
+<div class="hlist">
+<ul>  
+  <li><%= link_to 'Fahrts', fahrts_path%></li>
+  <li><%= link_to 'Mitfahrer', mitfahrers_path%> </li>
+  <li><%= link_to 'Accounts', accounts_path%></li>
+</ul>
+</div>
+</br>
+<div class="signedin">
 <% if account_signed_in? %>
-    <%= link_to current_account, account_url(current_account.id) %>
-    <%= link_to 'Logout', destroy_account_session_path, method: :delete %>
-    <%= link_to "Change your password", edit_account_registration_path %>
-    <%= link_to "Update your account", edit_account_path(current_account.id) %>
+<ul>  
+<li><%= link_to current_account, account_url(current_account.id) %></li>
+<li><%= link_to 'Logout', destroy_account_session_path, method: :delete %></li>
+<li><%= link_to "Change your password", edit_account_registration_path %></li>
+<li><%= link_to "Update your account", edit_account_path(current_account.id) %></li>
 <% else %>
-  <%= link_to 'Login', new_account_session_path %>
+<li><%= link_to 'Login', new_account_session_path %>
 <% end %>
-
+</div>
+</div>
+<div class="content">
 <%= yield %>
+</div>
 
 </body>
 </html>

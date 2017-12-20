@@ -48,14 +48,47 @@
 
   .header {
     grid-area: header;
-    background-color: green;
-    min-height: 20%;
-    height:auto !important;
-    height:20%;
+    background-color: lightblue;
+    
   }
+
+  .header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-size: 15px;
+
+}
+
+.header li {
+    float: left;
+}
+
+.header li {
+    display: block;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+.header li a:hover {
+    background-color: #111;
+}
+
+.header .signedin{
+  width:200px;
+  padding: 10px 10px;
+  background:#ffffcc;
+  border:1px solid #fff;
+  position:absolute;
+  right:0;
+  top:5px;
+}
+
   .content {
    grid-area: content;
-     background-color: lightblue;
+     background-color: yellowgreen;
      min-height: 70%;
      height:auto !important;
      height:70%;
