@@ -23,7 +23,6 @@
  .wrapper .header{
   display:grid;
   grid-template-columns:7fr 3fr;
-  
   background:yellowgreen;
  }
 
@@ -31,23 +30,50 @@
   background:lightcoral;
  }
 
-ul{
+ .wrapper .header ul{
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
  }
 
- li {
+ .wrapper .header li {
   float: left;
 }
 
-li a {
+.wrapper .header li a {
   display: block;
-  color: white;
+  color: black;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+}
+
+.wrapper .header li a:hover {
+  color: green;
+}
+
+.wrapper .footer ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+ }
+
+ .wrapper .footer li {
+  float: left;
+}
+
+.wrapper .footer li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.wrapper .footer li a:hover {
+  color: green;
 }
 
  .wrapper .header .login{
@@ -56,7 +82,9 @@ li a {
  
 .wrapper .content{
   background: lightyellow;
+  text-align: center;
   align-items: center;
+  padding: 10px;
 }
 
 .wrapper .footer{

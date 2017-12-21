@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   post "/deactivate", to: "accounts#deactivate"
   post "/activate", to: "accounts#activate"
 
+  get "/impressum", to: "padacar#impressum"
+
   resources :mitfahrers
   resources :fahrts
   resources :accounts
