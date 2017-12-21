@@ -13,21 +13,36 @@
  *= require_tree .
  *= require_self
  */
+
+ html, body {
+            
+            margin: 0px;
+        }
+
  .wrapper {
   display:grid;
-  background:lightblue;
+  height: 100vh;
   grid-template-columns:1fr;
-  grid-template-rows:2fr 8fr 2fr;
+  grid-template-rows:1fr 14fr 1fr;
+  background: url('<%= asset_url('v.jpg') %>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position:center;
+  background-attachedment:fixed;
+  background-size:cover;
+  background-color:white;
+  border: 1px solid rewhited;
  }
 
  .wrapper .header{
+  background-color: white;
   display:grid;
   grid-template-columns:7fr 3fr;
-  background:yellowgreen;
+  justify-content: center;
  }
 
  .wrapper .header .lists{
-  background:lightcoral;
+     background-color: white;
  }
 
  .wrapper .header ul{
@@ -50,7 +65,7 @@
 }
 
 .wrapper .header li a:hover {
-  color: green;
+  color: white;
 }
 
 .wrapper .footer ul{
@@ -61,7 +76,7 @@
  }
 
  .wrapper .footer li {
-  float: left;
+     float: left;
 }
 
 .wrapper .footer li a {
@@ -73,22 +88,38 @@
 }
 
 .wrapper .footer li a:hover {
-  color: green;
+  color: white;
 }
 
  .wrapper .header .login{
-  background: lightpink;
+  justify-self: end;
+  background-color: white;
+ }
+
+ wrapper .header .login ul {  
+   align-self: right;
  }
  
-.wrapper .content{
-  background: lightyellow;
+.wrapper .content {
+  justify-self: center;
+  align-self: center;
   text-align: center;
-  align-items: center;
+  color: white;
   padding: 10px;
+ }
+
+ .wrapper .content  a {
+  color: white;
+  text-align: center;
 }
 
-.wrapper .footer{
-  background: lightgray;
+.wrapper .footer{ 
+  display:grid;
+  background-color: white;
+}
+
+.wrapper .footer .footerlist{
+  justify-self: center;
 }
 
   .table-scrollable {
@@ -113,3 +144,7 @@
     .wrapper .header{
       grid-template-columns:1fr;
   }
+  .wrapper .header .login{
+    justify-self: start;
+  }
+}

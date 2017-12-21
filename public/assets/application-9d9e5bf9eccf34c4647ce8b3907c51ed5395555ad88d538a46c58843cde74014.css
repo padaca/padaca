@@ -1,0 +1,195 @@
+/* line 1, C:/Users/df_p/Desktop/PadaCar/padaca/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, C:/Users/df_p/Desktop/PadaCar/padaca/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 15, C:/Users/df_p/Desktop/PadaCar/padaca/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 21, C:/Users/df_p/Desktop/PadaCar/padaca/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 24, C:/Users/df_p/Desktop/PadaCar/padaca/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 28, C:/Users/df_p/Desktop/PadaCar/padaca/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 35, C:/Users/df_p/Desktop/PadaCar/padaca/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 40, C:/Users/df_p/Desktop/PadaCar/padaca/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 44, C:/Users/df_p/Desktop/PadaCar/padaca/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 50, C:/Users/df_p/Desktop/PadaCar/padaca/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 58, C:/Users/df_p/Desktop/PadaCar/padaca/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 69, C:/Users/df_p/Desktop/PadaCar/padaca/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+ .wrapper {
+  display:grid;
+  background:lightblue;
+  grid-template-columns:1fr;
+  grid-template-rows:2fr 8fr 2fr;
+ }
+
+ .wrapper .header{
+  display:grid;
+  grid-template-columns:7fr 3fr;
+  background-image: url(../images/pb.jpg);
+ }
+
+ .wrapper .header .lists{
+  background:lightcoral;
+ }
+
+ .wrapper .header ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+ }
+
+ .wrapper .header li {
+  float: left;
+}
+
+.wrapper .header li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.wrapper .header li a:hover {
+  color: green;
+}
+
+.wrapper .footer ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+ }
+
+ .wrapper .footer li {
+  float: left;
+}
+
+.wrapper .footer li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.wrapper .footer li a:hover {
+  color: green;
+}
+
+ .wrapper .header .login{
+  background: lightpink;
+ }
+ 
+.wrapper .content{
+  background: lightyellow;
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.wrapper .footer{
+  background: lightgray;
+}
+
+  .table-scrollable {
+    width: 100%;
+    overflow-y: auto;
+    margin: 0 0 1em;
+  }
+  
+  .table-scrollable::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+  }
+  
+  .table-scrollable::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 3px solid #fff;
+    background-color: rgba(0, 0, 0, .3);
+  }
+
+  @media (max-width: 400px) {
+    .wrapper .header{
+      grid-template-columns:1fr;
+  }
