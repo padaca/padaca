@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :nachrichts
   devise_for :accounts do
     get '/accounts/sign_out' => 'devise/sessions#destroy'
   end

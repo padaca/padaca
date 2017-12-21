@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Nachrichts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sender</th>
+      <th>Empfaenger</th>
+      <th>Nachricht</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nachrichts.each do |nachricht| %>
+      <tr>
+        <td><%= nachricht.sender %></td>
+        <td><%= nachricht.empfaenger %></td>
+        <td><%= nachricht.nachricht %></td>
+        <td><%= link_to 'Show', nachricht %></td>
+        <td><%= link_to 'Edit', edit_nachricht_path(nachricht) %></td>
+        <td><%= link_to 'Destroy', nachricht, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nachricht', new_nachricht_path %>
