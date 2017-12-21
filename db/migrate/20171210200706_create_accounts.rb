@@ -4,7 +4,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :vorname
       t.string :nachname
       t.string :geschlecht
-      t.boolean :istMitarbeiter
+      t.boolean :istMitarbeiter, default: false
       t.integer :fahrerbewertung
       t.integer :mitfahrerbewertung
       t.string :standort

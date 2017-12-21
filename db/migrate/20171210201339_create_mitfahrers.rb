@@ -5,7 +5,7 @@ class CreateMitfahrers < ActiveRecord::Migration
       t.references :account, index: true, foreign_key: true
       t.integer :mitfahrerbewertung
       t.integer :fahrerbewertung
-      t.boolean :istBestatigt
+      t.boolean :istBestatigt, default: false
 
       t.timestamps null: false
     end
