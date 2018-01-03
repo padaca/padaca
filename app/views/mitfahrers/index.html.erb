@@ -1,38 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Mitfahrers</h1>
+<h1>Meine Fahrten und Mitfahrten</h1>
+
+Ich bin 
+<%= form_tag mitfahrers_path, method: :get do %>
+  <%= select_tag :filter, options_for_select([['Egal', nil], ['Fahrer', 1], ['Mitfahrer', 0]], params[:filter]), :onchange => "this.form.submit()" %>
+<% end %>
 
 <table>
   <thead>
     <tr>
-      <th>Fahrt</th>
-      <th>Account</th>
-      <th>Mitfahrerbewertung</th>
-      <th>Fahrerbewertung</th>
-      <th>Istbestatigt</th>
+      <th>Von</th>
+      <th>Nach</th>
+      <th>Fahrer</th>
+      <th>Zeitpunkt</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
-    <% @mitfahrers.each do |mitfahrer| %>
+    <% @uebersicht.each do |entry| %>
       <tr>
-        <td><%= mitfahrer.fahrt %></td>
-        <td><%= mitfahrer.account %></td>
-        <td><%= mitfahrer.mitfahrerbewertung %></td>
-        <td><%= mitfahrer.fahrerbewertung %></td>
-        <td><%= mitfahrer.istBestatigt %></td>
-        <td><%= link_to 'Show', mitfahrer %></td>
-        <% if current_account.id == mitfahrer.account.id%>
-          <td><%= link_to 'Edit', edit_mitfahrer_path(mitfahrer) %></td>
-          <td><%= link_to 'Destroy', mitfahrer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= entry.von %></td>
+        <td><%= entry.nach %></td>
+        <td><%= link_to entry.account.to_s, account_url(entry.account.id) %></td>
+        <td><%= '30.02.2018 12:00 GMT' %></td>
+        <% if current_account.id == entry.account.id %>
+          <td><%= link_to 'Show', fahrt_url(entry.id) %></td>
+          <td><%= link_to 'Edit', edit_fahrt_path(entry.id) %></td>
+          <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+          <td><%= link_to 'Show', mitfahrer_url(get_mitfahrer(entry.id, current_account.id)) %></td>
+          <td><%= link_to 'Edit', edit_mitfahrer_path(get_mitfahrer(entry.id, current_account.id)) %></td>
+          <td><%= link_to 'Destroy', get_mitfahrer(entry.id, current_account.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%# Nicht benötigt, da ja nur über die Fahrten neue Mitfahrer erstellt werden %>
-<%#= link_to 'New Mitfahrer', new_mitfahrer_path %>

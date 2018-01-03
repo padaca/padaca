@@ -4,8 +4,20 @@ class MitfahrersController < ApplicationController
   # GET /mitfahrers
   # GET /mitfahrers.json
   def index
-    # Liste der den aktuellen User betreffenden Mitfahrten
-    @mitfahrers = Mitfahrer.where(:account_id => current_account.id)
+    # Liste der Fahrten und Mitfahten des aktuellen Users
+    # select * from fahrts f left join mitfahrers m on f.id = m.fahrt_id where f.account_id = 1 or m.account_id = 1;
+    if params[:filter] && !params[:filter].empty?
+      if params[:filter] == '1'
+        # der aktuelle User ist Fahrer
+        @uebersicht = Fahrt.where(account_id: current_account.id)
+      elsif params[:filter] == '0'
+        # der aktuelle User ist Mitfahrer
+        @uebersicht = Fahrt.joins("left join mitfahrers on fahrts.id = mitfahrers.fahrt_id").where("mitfahrers.account_id = #{current_account.id}")
+      end
+    else
+      # alle Fahrten und Mitfahrten
+      @uebersicht = Fahrt.joins("left join mitfahrers on fahrts.id = mitfahrers.fahrt_id").where("fahrts.account_id = #{current_account.id} or mitfahrers.account_id = #{current_account.id}")
+    end
   end
 
   # GET /mitfahrers/1
