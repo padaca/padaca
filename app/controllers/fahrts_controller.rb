@@ -4,14 +4,20 @@ class FahrtsController < ApplicationController
   # GET /fahrts
   # GET /fahrts.json
   def index
-    @fahrts = Fahrt.all
+    @fahrts = []
+    if params[:von] && !params[:von].empty? && params[:nach] && !params[:nach].empty?
+      @fahrts = Fahrt.where("von LIKE '%#{params[:von]}%' and nach LIKE '%#{params[:nach]}%'")
+    elsif params[:von] && !params[:von].empty?
+      @fahrts = Fahrt.where("von LIKE '%#{params[:von]}%'")
+    elsif params[:nach] && !params[:nach].empty?
+      @fahrts = Fahrt.where("nach LIKE '%#{params[:nach]}%'")
+    end
   end
 
   # GET /fahrts/1
   # GET /fahrts/1.json
   def show
     @total = Mitfahrer.where(:fahrt_id => @fahrt.id, :istBestatigt => true).select("COUNT(*) AS total").first.total
-    # @anfragen = Mitfahrer.where(:fahrt_id => @fahrt.id, :istBestatigt => false)
     @anfragen = Mitfahrer.where("fahrt_id = #{@fahrt.id}")
   end
 
