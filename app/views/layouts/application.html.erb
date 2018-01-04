@@ -14,11 +14,13 @@
 <div class="wrapper">
 <div class="header">
 <div class="lists">
-<ul>  
-  <li><%= link_to 'Fahrten', fahrts_path%></li>
-  <li><%= link_to 'Meine Fahrten und Mitfahrten', mitfahrers_path%> </li>
-  <li><%= link_to 'Accounts', accounts_path%></li>
-</ul>
+<% if account_signed_in? %>
+  <ul>  
+    <li><%= link_to 'Fahrten', fahrts_path%></li>
+    <li><%= link_to 'Meine Fahrten und Mitfahrten', mitfahrers_path%> </li>
+    <li><%= link_to 'Accounts', accounts_path%></li>
+  </ul>
+<% end %>
 </div>
 <div class="login">
 <ul> 
