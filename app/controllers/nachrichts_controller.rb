@@ -4,12 +4,22 @@ class NachrichtsController < ApplicationController
   # GET /nachrichts
   # GET /nachrichts.json
   def index
-    @nachrichts = Nachricht.all
+    @nachrichts = Nachricht.where(empfaenger_id: current_account.id).each do |nachricht|
+      if nachricht.empfaenger_id == current_account.id and nachricht.seen == nil
+        nachricht.seen = Time.now
+        nachricht.save!
+        nachricht.seen = nil # is still unseen in ui, only seen in database
+      end
+    end
   end
 
   # GET /nachrichts/1
   # GET /nachrichts/1.json
   def show
+    if @nachricht.empfaenger_id == current_account.id and not @nachricht.read
+      @nachricht.read = Time.now
+      @nachricht.save
+    end
   end
 
   # GET /nachrichts/new
