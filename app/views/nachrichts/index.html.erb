@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Datum</th>
       <th>Sender</th>
       <th>Empfaenger</th>
       <th>Nachricht</th>
@@ -14,7 +15,8 @@
 
   <tbody>
     <% @nachrichts.each do |nachricht| %>
-      <tr>
+      <tr class="<%= nachricht.read ? :read : :unread %>">
+        <td><%= nachricht.created_at < Date.yesterday ? nachricht.created_at : ( time_ago_in_words(nachricht.created_at) + " ago") %></td>
         <td><%= nachricht.sender %></td>
         <td><%= nachricht.empfaenger %></td>
         <td><%= nachricht.nachricht %></td>
