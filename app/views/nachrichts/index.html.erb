@@ -9,7 +9,6 @@
       <th>Datum</th>
       <th>Sender</th>
       <th>Empfaenger</th>
-      <th>Nachricht</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,7 +20,6 @@
         <td><%= nachricht.created_at < Date.yesterday ? nachricht.created_at : ( time_ago_in_words(nachricht.created_at) + " ago") %></td>
         <td><%= nachricht.sender %></td>
         <td><%= nachricht.empfaenger %></td>
-        <td><%= nachricht.nachricht %></td>
         <td><%= link_to 'Show', nachricht %></td>
         <td><%= link_to 'Edit', edit_nachricht_path(nachricht) %></td>
         <td><%= link_to 'Destroy', nachricht, method: :delete, data: { confirm: 'Are you sure?' } %></td>
