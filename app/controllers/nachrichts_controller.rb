@@ -35,6 +35,7 @@ class NachrichtsController < ApplicationController
   # POST /nachrichts.json
   def create
     @nachricht = Nachricht.new(nachricht_params)
+    @nachricht.sender = current_account
 
     respond_to do |format|
       if @nachricht.save
@@ -79,6 +80,6 @@ class NachrichtsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def nachricht_params
-      params.require(:nachricht).permit(:sender_id, :empfaenger_id, :nachricht)
+      params.require(:nachricht).permit(:empfaenger_id, :nachricht)
     end
 end
