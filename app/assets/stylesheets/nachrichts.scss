@@ -5,3 +5,7 @@
 tr.unread {
     font-weight: bold;
 }
+
+td.seen-status.unseen::before {
+    content: "•";
+}
