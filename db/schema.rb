@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171221114200) do
+ActiveRecord::Schema.define(version: 20171221122027) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "vorname"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 20171221114200) do
     t.string   "nachricht"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.datetime "seen"
+    t.datetime "read"
   end
 
   add_index "nachrichts", ["empfaenger_id"], name: "index_nachrichts_on_empfaenger_id"
