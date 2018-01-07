@@ -17,18 +17,18 @@ ActiveRecord::Schema.define(version: 20171221122027) do
     t.string   "vorname"
     t.string   "nachname"
     t.string   "geschlecht"
-    t.boolean  "istMitarbeiter",         default: false
+    t.boolean  "istMitarbeiter"
     t.integer  "fahrerbewertung"
     t.integer  "mitfahrerbewertung"
     t.string   "standort"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.string   "email",                  default: "",   null: false
+    t.string   "encrypted_password",     default: "",   null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,    null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(version: 20171221122027) do
     t.integer  "account_id"
     t.integer  "mitfahrerbewertung"
     t.integer  "fahrerbewertung"
-    t.boolean  "istBestatigt",       default: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.boolean  "istBestatigt"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_index "mitfahrers", ["account_id"], name: "index_mitfahrers_on_account_id"
