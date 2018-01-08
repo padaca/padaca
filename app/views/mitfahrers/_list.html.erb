@@ -1,24 +1,38 @@
+<% if @summary %>
+    <p id="summary"><span>Fahrt:</span> <%= link_to @summary %></p>
+<% end %>
 <table>
 
   <thead>
+
+    <% unless @summary %>
     <th>Von</th>
     <th>Nach</th>
+    <% end %>
+
     <% if @counterpart %>
       <th><%= @counterpart.to_s.capitalize %></th>
     <% end %>
+
     <th>Bestätigt</th>
     <th>Aktionen</th>
+
   </thead>
 
   <tbody>
 
     <% @mitfahrers.each do |mitfahrer| %>
       <tr>
-        <td><%= mitfahrer.fahrt.von %></td>
-        <td><%= mitfahrer.fahrt.nach %></td>
+
+        <% unless @summary %>
+          <td><%= mitfahrer.fahrt.von %></td>
+          <td><%= mitfahrer.fahrt.nach %></td>
+        <% end %>
+
         <% if @counterpart %>
           <td><%= mitfahrer_counterpart(mitfahrer) %></td>
         <% end %>
+
         <td><%= mitfahrer.istBestatigt ? ':y:' : ':n:' %></td>
         <td>
           <%= link_to "Anzeigen", mitfahrer_path(mitfahrer) %>

@@ -9,6 +9,7 @@ class MitfahrersController < ApplicationController
 
     if mitfahrer_filter_params[:fahrt]
       @mitfahrers.where!(fahrt_id: params[:fahrt])
+      @summary = Fahrt.find(params[:fahrt])
     end
 
   end
