@@ -11,6 +11,6 @@ module MitfahrersHelper
             mitfahrer.account
         end
 
-        link_to counterpart
+        link_to counterpart, counterpart
     end
 end
