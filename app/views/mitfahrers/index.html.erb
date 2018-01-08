@@ -1,39 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Meine Fahrten und Mitfahrten</h1>
+<h1>Meine Mitfahrer</h1>
 
-Ich bin 
-<%= form_tag mitfahrers_path, method: :get do %>
-  <%= select_tag :filter, options_for_select([['Egal', nil], ['Fahrer', 1], ['Mitfahrer', 0]], params[:filter]), :onchange => "this.form.submit()" %>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Von</th>
-      <th>Nach</th>
-      <th>Fahrer</th>
-      <th>Zeitpunkt</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @uebersicht.each do |entry| %>
-      <tr>
-        <td><%= entry.von %></td>
-        <td><%= entry.nach %></td>
-        <td><%= link_to entry.account.to_s, account_url(entry.account.id) %></td>
-        <td><%= '30.02.2018 12:00 GMT' %></td>
-        <% if current_account.id == entry.account.id %>
-          <td><%= link_to 'Show', fahrt_url(entry.id) %></td>
-          <td><%= link_to 'Edit', edit_fahrt_path(entry.id) %></td>
-          <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% else %>
-          <td><%= link_to 'Show', mitfahrer_url(get_mitfahrer(entry.id, current_account.id)) %></td>
-          <td><%= link_to 'Edit', edit_mitfahrer_path(get_mitfahrer(entry.id, current_account.id)) %></td>
-          <td><%= link_to 'Destroy', get_mitfahrer(entry.id, current_account.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'list' %>
