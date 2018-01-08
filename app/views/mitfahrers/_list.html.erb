@@ -1,0 +1,30 @@
+<table>
+
+  <thead>
+    <th>Von</th>
+    <th>Nach</th>
+    <% if @counterpart %>
+      <th><%= @counterpart.to_s.capitalize %></th>
+    <% end %>
+    <th>Bestätigt</th>
+    <th>Aktionen</th>
+  </thead>
+
+  <tbody>
+
+    <% @mitfahrers.each do |mitfahrer| %>
+      <tr>
+        <td><%= mitfahrer.fahrt.von %></td>
+        <td><%= mitfahrer.fahrt.nach %></td>
+        <% if @counterpart %>
+          <td><%= mitfahrer_counterpart(mitfahrer) %></td>
+        <% end %>
+        <td><%= mitfahrer.istBestatigt ? ':y:' : ':n:' %></td>
+        <td>
+          <%= link_to "Anzeigen", mitfahrer_path(mitfahrer) %>
+          <%= link_to "Bearbeiten", edit_mitfahrer_path(mitfahrer) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
