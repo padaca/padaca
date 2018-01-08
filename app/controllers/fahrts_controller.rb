@@ -17,6 +17,14 @@ class FahrtsController < ApplicationController
 
   end
 
+  def index
+    @fahrts = Fahrt.where account: current_account
+  end
+
+  def mitfahrten
+    @fahrts = Fahrt.joins(:mitfahrer).where(mitfahrers: { account_id: current_account.id })
+  end
+
   # GET /fahrts/1
   # GET /fahrts/1.json
   def show
