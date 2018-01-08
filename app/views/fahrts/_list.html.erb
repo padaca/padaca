@@ -1,0 +1,33 @@
+<table>
+  <thead>
+    <tr>
+      <th>Von</th>
+      <th>Nach</th>
+      <th>Dauer</th>
+      <th>Preispromitfahrer</th>
+      <th>Maxmitfahrer</th>
+      <th>Account</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fahrts.each do |fahrt| %>
+      <tr>
+        <td><%= fahrt.von %></td>
+        <td><%= fahrt.nach %></td>
+        <td><%= fahrt.dauer %></td>
+        <td><%= fahrt.preisProMitfahrer %></td>
+        <td><%= fahrt.maxMitfahrer %></td>
+        <td><%= fahrt.account %></td>
+        <td><%= link_to 'Show', fahrt %></td>
+        <% if current_account.id == fahrt.account.id %>
+          <td><%= link_to 'Edit', edit_fahrt_path(fahrt) %></td>
+          <td><%= link_to 'Destroy', fahrt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+          <td><%= link_to 'Mitfahren', new_mitfahrer_path(fahrt: fahrt) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

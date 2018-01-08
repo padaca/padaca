@@ -3,7 +3,7 @@ class FahrtsController < ApplicationController
 
   # GET /fahrts
   # GET /fahrts.json
-  def index
+  def search
     @fahrts = []
     if params[:von] && !params[:von].empty? && params[:nach] && !params[:nach].empty?
       @fahrts = Fahrt.where("von LIKE '%#{params[:von]}%' and nach LIKE '%#{params[:nach]}%'")
@@ -12,6 +12,17 @@ class FahrtsController < ApplicationController
     elsif params[:nach] && !params[:nach].empty?
       @fahrts = Fahrt.where("nach LIKE '%#{params[:nach]}%'")
     end
+
+    @hide_table = @fahrts.empty?
+
+  end
+
+  def index
+    @fahrts = Fahrt.where account: current_account
+  end
+
+  def mitfahrts
+    @fahrts = Fahrt.joins(:mitfahrer).where(mitfahrers: { account_id: current_account.id })
   end
 
   # GET /fahrts/1
