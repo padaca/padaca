@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   get '/fahrts/mitfahrts'
 
+  get '/mitfahrers/self'
+
   resources :mitfahrers
   resources :fahrts
   resources :accounts

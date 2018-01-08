@@ -13,6 +13,11 @@ class MitfahrersController < ApplicationController
 
   end
 
+  def self
+    @counterpart = :fahrer
+    @mitfahrers = Mitfahrer.where(account: current_account)
+  end
+
   # GET /mitfahrers/1
   # GET /mitfahrers/1.json
   def show
