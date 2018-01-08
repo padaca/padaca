@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated do
-      root 'fahrts#index', as: :authenticated_root
+      root 'fahrts#search', as: :authenticated_root
     end
   
     unauthenticated do
@@ -19,6 +19,11 @@ Rails.application.routes.draw do
   post "/activate", to: "accounts#activate"
 
   get "/impressum", to: "padacar#impressum"
+
+  get '/fahrts/search'
+  post '/fahrts/search'
+
+  get '/fahrts/mitfahrts'
 
   resources :mitfahrers
   resources :fahrts

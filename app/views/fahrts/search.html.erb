@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fahrtensuche</h1>
+
+<%= form_tag fahrts_search_path, method: :get do %>
+  <%= text_field_tag :von, params[:von], placeholder: 'Von...' %>
+  <%= text_field_tag :nach, params[:nach], placeholder: 'Nach...' %>
+  <%= submit_tag 'Suchen' %>
+<% end %>
+
+
+<% unless @hide_table %>
+  <%= render 'list' %>
+<% end %>
