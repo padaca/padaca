@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get '/fahrts/search'
   post '/fahrts/search'
 
-  get '/fahrts/mitfahrten'
+  get '/fahrts/mitfahrts'
 
   resources :mitfahrers
   resources :fahrts

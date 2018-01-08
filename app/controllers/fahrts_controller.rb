@@ -21,7 +21,7 @@ class FahrtsController < ApplicationController
     @fahrts = Fahrt.where account: current_account
   end
 
-  def mitfahrten
+  def mitfahrts
     @fahrts = Fahrt.joins(:mitfahrer).where(mitfahrers: { account_id: current_account.id })
   end
 
