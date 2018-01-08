@@ -16,7 +16,7 @@
 <div class="lists">
 <% if account_signed_in? %>
   <ul>  
-    <li><%= link_to 'Fahrten', fahrts_path%></li>
+    <li><%= link_to 'Fahrt suchen', fahrts_search_path%></li>
     <li><%= link_to 'Meine Fahrten und Mitfahrten', mitfahrers_path%> </li>
     <li><%= link_to 'Accounts', accounts_path%></li>
     <li class="<%= unread_nachrichts_class %>"><%= link_to 'Nachrichten', nachrichts_path%></li>

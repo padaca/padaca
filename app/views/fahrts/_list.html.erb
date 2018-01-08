@@ -1,13 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Fahrtensuche</h1>
-
-<%= form_tag fahrts_path, method: :get do %>
-  <%= text_field_tag :von, params[:von], placeholder: 'Von...' %>
-  <%= text_field_tag :nach, params[:nach], placeholder: 'Nach...' %>
-  <%= submit_tag 'Suchen' %>
-<% end %>
-
 <table>
   <thead>
     <tr>
@@ -41,7 +31,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Fahrt', new_fahrt_path %>
