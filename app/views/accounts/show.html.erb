@@ -30,5 +30,6 @@
   <%= @account.standort %>
 </p>
 
+<%= link_to 'Nachricht schreiben', new_nachricht_path(empfaenger: @account) %> |
 <%= link_to 'Edit', edit_account_path(@account) %> |
 <%= link_to 'Back', accounts_path %>
