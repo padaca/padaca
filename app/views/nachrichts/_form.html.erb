@@ -13,7 +13,8 @@
 
   <div class="field">
     <%= f.label :empfaenger_id %><br>
-    <%= f.text_field :empfaenger_id %>
+    <%= f.text_field :empfaenger_id, hidden: !@nachricht.empfaenger.nil? %>
+    <%= @nachricht.empfaenger %>
   </div>
   <div class="field">
     <%= f.label :nachricht %><br>

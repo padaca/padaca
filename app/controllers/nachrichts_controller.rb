@@ -24,7 +24,8 @@ class NachrichtsController < ApplicationController
 
   # GET /nachrichts/new
   def new
-    @nachricht = Nachricht.new
+      params.permit(:empfaenger)
+      @nachricht = Nachricht.new(empfaenger_id: params[:empfaenger])
   end
 
   # GET /nachrichts/1/edit
