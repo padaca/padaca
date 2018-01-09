@@ -1,0 +1,11 @@
+<h1><%= @markedOnly ? "Gespeicherte " : "" %>Fahrten</h1>
+
+<% if @markedOnly %>
+    <%= link_to "Ungespeicherte Fahrten anzeigen", fahrts_ungespeichert_path %>
+<% else %>
+    <%= link_to "Gespeicherte Fahrten anzeigen", fahrts_gespeichert_path %>
+<% end %>
+
+<%= render 'list' %>
+
+<%= link_to :back, new_fahrt_path %>

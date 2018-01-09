@@ -1,5 +1,6 @@
 class FahrtsController < ApplicationController
   before_action :set_fahrt, only: [:show, :edit, :update, :destroy]
+  before_action :set_options
 
   # GET /fahrts
   # GET /fahrts.json
@@ -18,6 +19,8 @@ class FahrtsController < ApplicationController
   end
 
   def index
+    @options[:account] = false;
+    @options[:marked] = true;
     @fahrts = Fahrt.where account: current_account
   end
 
@@ -34,7 +37,15 @@ class FahrtsController < ApplicationController
 
   # GET /fahrts/new
   def new
-    @fahrt = Fahrt.new(account: current_account)
+    params.permit(:fahrt)
+
+    if params[:fahrt]
+      @fahrt = Fahrt.find(params[:fahrt]).dup
+      @fahrt.account = current_account
+      @fahrt.id = nil
+    else
+      @fahrt = Fahrt.new(account: current_account)
+    end
   end
 
   # GET /fahrts/1/edit
@@ -81,6 +92,34 @@ class FahrtsController < ApplicationController
     end
   end
 
+  def mark(marked=true)
+      @fahrt = Fahrt.find(params[:fahrt_id]);
+      @fahrt.istGespeichert = marked
+      @fahrt.save!
+      redirect_to :back
+  end
+
+  def unmark
+      mark false
+  end
+
+  def marked(markedOnly = true)
+
+      @options = {
+        account: false,
+        marked: false,
+        new_from_marked: true,
+      }
+
+      @markedOnly = markedOnly
+      @fahrts = Fahrt.where(account: current_account, istGespeichert: @markedOnly)
+  end
+
+  def unmarked
+      marked(false)
+      render 'marked'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_fahrt
@@ -90,5 +129,13 @@ class FahrtsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def fahrt_params
       params.require(:fahrt).permit(:von, :nach, :dauer, :preisProMitfahrer, :maxMitfahrer, :account_id)
+    end
+
+    def set_options
+      @options = {
+        account: true,
+        marked: false,
+        new_from_marked: false,
+      }
     end
 end
