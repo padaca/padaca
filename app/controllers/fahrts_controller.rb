@@ -34,7 +34,15 @@ class FahrtsController < ApplicationController
 
   # GET /fahrts/new
   def new
-    @fahrt = Fahrt.new(account: current_account)
+    params.permit(:fahrt)
+
+    if params[:fahrt]
+      @fahrt = Fahrt.find(params[:fahrt]).dup
+      @fahrt.account = current_account
+      @fahrt.id = nil
+    else
+      @fahrt = Fahrt.new(account: current_account)
+    end
   end
 
   # GET /fahrts/1/edit
