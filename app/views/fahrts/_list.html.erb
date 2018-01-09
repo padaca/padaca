@@ -6,9 +6,11 @@
       <th>Dauer</th>
       <th>Preispromitfahrer</th>
       <th>Maxmitfahrer</th>
-      <% unless @listSaved %>
+      <% if @options[:account] %>
         <th>Account</th>
-        <th>Gepeichert</th>
+      <% end %>
+      <% if @options[:marked] %>
+      <th>Gepeichert</th>
       <% end %>
       <th>Aktionen</th>
     </tr>
@@ -22,8 +24,10 @@
         <td><%= fahrt.dauer %></td>
         <td><%= fahrt.preisProMitfahrer %></td>
         <td><%= fahrt.maxMitfahrer %></td>
-        <% unless @listSaved %>
-          <td><%= fahrt.account %></td>
+        <% if @options[:account] %>
+        <td><%= fahrt.account %></td>
+        <% end %>
+        <% if @options[:marked] %>
           <td>
             <% if fahrt.istGespeichert %>
               :y:
@@ -34,7 +38,7 @@
             <% end %>
           </td>
         <% end %>
-        <% if @listSaved %>
+        <% if @options[:new_from_marked] %>
           <td><%= link_to "Erneut Fahren", new_fahrt_path(fahrt: fahrt) %></td>
         <% else %>
           <td>

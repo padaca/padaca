@@ -1,5 +1,6 @@
 class FahrtsController < ApplicationController
   before_action :set_fahrt, only: [:show, :edit, :update, :destroy]
+  before_action :set_options
 
   # GET /fahrts
   # GET /fahrts.json
@@ -18,6 +19,8 @@ class FahrtsController < ApplicationController
   end
 
   def index
+    @options[:account] = false;
+    @options[:marked] = true;
     @fahrts = Fahrt.where account: current_account
   end
 
@@ -101,7 +104,13 @@ class FahrtsController < ApplicationController
   end
 
   def marked(markedOnly = true)
-      @listSaved = true
+
+      @options = {
+        account: false,
+        marked: false,
+        new_from_marked: true,
+      }
+
       @markedOnly = markedOnly
       @fahrts = Fahrt.where(account: current_account, istGespeichert: @markedOnly)
   end
@@ -120,5 +129,13 @@ class FahrtsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def fahrt_params
       params.require(:fahrt).permit(:von, :nach, :dauer, :preisProMitfahrer, :maxMitfahrer, :account_id)
+    end
+
+    def set_options
+      @options = {
+        account: true,
+        marked: false,
+        new_from_marked: false,
+      }
     end
 end
