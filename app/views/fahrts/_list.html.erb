@@ -31,10 +31,10 @@
           <td>
             <% if fahrt.istGespeichert %>
               :y:
-              <%= link_to sanitize('&times;'), fahrt_speichern_path(fahrt), method: :delete %>
+              <%= link_to sanitize('&times;'), fahrt_speichern_path(fahrt), method: :delete, remote: true %>
             <% else %>
               :n:
-              <%= link_to 'Speichern', fahrt_speichern_path(fahrt), method: :post %>
+              <%= link_to 'Speichern', fahrt_speichern_path(fahrt), method: :post, remote: true %>
             <% end %>
           </td>
         <% end %>
