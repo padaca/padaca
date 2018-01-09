@@ -81,6 +81,17 @@ class FahrtsController < ApplicationController
     end
   end
 
+  def mark(marked=true)
+      @fahrt = Fahrt.find(params[:fahrt_id]);
+      @fahrt.istGespeichert = marked
+      @fahrt.save!
+      redirect_to :back
+  end
+
+  def unmark
+      mark false
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_fahrt
