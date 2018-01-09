@@ -92,6 +92,17 @@ class FahrtsController < ApplicationController
       mark false
   end
 
+  def marked(markedOnly = true)
+      @listSaved = true
+      @markedOnly = markedOnly
+      @fahrts = Fahrt.where(account: current_account, istGespeichert: @markedOnly)
+  end
+
+  def unmarked
+      marked(false)
+      render 'marked'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_fahrt

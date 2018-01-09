@@ -25,6 +25,9 @@ Rails.application.routes.draw do
 
   get '/fahrts/mitfahrts'
 
+  get '/fahrts/gespeichert', to: 'fahrts#marked'
+  get '/fahrts/ungespeichert', to: 'fahrts#unmarked'
+
   get '/mitfahrers/self'
 
   resources :mitfahrers

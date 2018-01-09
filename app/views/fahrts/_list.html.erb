@@ -6,9 +6,11 @@
       <th>Dauer</th>
       <th>Preispromitfahrer</th>
       <th>Maxmitfahrer</th>
-      <th>Account</th>
-      <th>Gepeichert</th>
-      <th colspan="4"></th>
+      <% unless @listSaved %>
+        <th>Account</th>
+        <th>Gepeichert</th>
+      <% end %>
+      <th>Aktionen</th>
     </tr>
   </thead>
 
@@ -20,23 +22,27 @@
         <td><%= fahrt.dauer %></td>
         <td><%= fahrt.preisProMitfahrer %></td>
         <td><%= fahrt.maxMitfahrer %></td>
-        <td><%= fahrt.account %></td>
-        <td>
+        <% unless @listSaved %>
+          <td><%= fahrt.account %></td>
+          <td>
             <% if fahrt.istGespeichert %>
-                :y:
-                <%= link_to sanitize('&times;'), fahrt_speichern_path(fahrt), method: :delete %>
+              :y:
+              <%= link_to sanitize('&times;'), fahrt_speichern_path(fahrt), method: :delete %>
             <% else %>
-                :n:
-                <%= link_to 'Speichern', fahrt_speichern_path(fahrt), method: :post %>
+              :n:
+              <%= link_to 'Speichern', fahrt_speichern_path(fahrt), method: :post %>
             <% end %>
-        </td>
-        <td><%= link_to 'Show', fahrt %></td>
-        <% if current_account.id == fahrt.account.id %>
-          <td><%= link_to 'Edit', edit_fahrt_path(fahrt) %></td>
-          <td><%= link_to 'Destroy', fahrt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% else %>
-          <td><%= link_to 'Mitfahren', new_mitfahrer_path(fahrt: fahrt) %></td>
+          </td>
         <% end %>
+        <td>
+          <%= link_to 'Show', fahrt %>
+          <% if current_account.id == fahrt.account.id %>
+            <%= link_to 'Edit', edit_fahrt_path(fahrt) %>
+            <%= link_to 'Destroy', fahrt, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% else %>
+            <%= link_to 'Mitfahren', new_mitfahrer_path(fahrt: fahrt) %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
