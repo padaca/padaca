@@ -31,14 +31,22 @@
     <%= f.label :maxMitfahrer %><br>
     <%= f.number_field :maxMitfahrer %>
   </div>
+  <% if @fahrt.account.nil? %>
   <div class="field">
     <%= f.label :account_id %><br>
     <%= f.text_field :account_id %>
   </div>
+  <% else %>
+    <%= f.text_field :account_id, hidden: true %>
+  <% end %>
+  <% unless @fahrt.id.nil? %>
   <div class="field">
     <%= f.label :istGespeichert %><br>
     <%= f.check_box :istGespeichert%>
   </div>
+  <% else %>
+    <%= f.check_box :istGespeichert, hidden: true %>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
