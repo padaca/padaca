@@ -7,11 +7,11 @@ class FahrtsController < ApplicationController
   def search
     @fahrts = []
     if params[:von] && !params[:von].empty? && params[:nach] && !params[:nach].empty?
-      @fahrts = Fahrt.where("von LIKE '%#{params[:von]}%' and nach LIKE '%#{params[:nach]}%'")
+      @fahrts = Fahrt.where("von LIKE '%#{params[:von]}%' and nach LIKE '%#{params[:nach]}%' and abfahrt >= '#{DateTime.now}'")
     elsif params[:von] && !params[:von].empty?
-      @fahrts = Fahrt.where("von LIKE '%#{params[:von]}%'")
+      @fahrts = Fahrt.where("von LIKE '%#{params[:von]}%' and abfahrt >= '#{DateTime.now}'")
     elsif params[:nach] && !params[:nach].empty?
-      @fahrts = Fahrt.where("nach LIKE '%#{params[:nach]}%'")
+      @fahrts = Fahrt.where("nach LIKE '%#{params[:nach]}%' and abfahrt >= '#{DateTime.now}'")
     end
 
     @hide_table = @fahrts.empty?
@@ -21,7 +21,7 @@ class FahrtsController < ApplicationController
   def index
     @options[:account] = false;
     @options[:marked] = true;
-    @fahrts = Fahrt.where account: current_account
+    @fahrts = Fahrt.where("account_id = ? and abfahrt >= ?", current_account.id, DateTime.now)
   end
 
   def mitfahrts
@@ -128,7 +128,7 @@ class FahrtsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fahrt_params
-      params.require(:fahrt).permit(:von, :nach, :dauer, :preisProMitfahrer, :maxMitfahrer, :account_id)
+      params.require(:fahrt).permit(:von, :nach, :dauer, :preisProMitfahrer, :maxMitfahrer, :account_id, :abfahrt)
     end
 
     def set_options
