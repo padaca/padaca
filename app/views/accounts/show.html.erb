@@ -1,35 +1,65 @@
 <p id="notice"><%= notice %></p>
+<h1>Account <%= @account.email %></h1>
+<div class="formtable" > 
+<table>
+<tr>
+  <td><strong>Vorname:</strong></td>
+  <td><%= @account.vorname %></td>
+  </tr>
 
-<p>
-  <strong>Vorname:</strong>
-  <%= @account.vorname %>
-</p>
+<tr>
+  <td><strong>Nachname:</strong></td>
+  <td><%= @account.nachname %></td>
+</tr>
 
-<p>
-  <strong>Nachname:</strong>
-  <%= @account.nachname %>
-</p>
-
-<p>
+<tr>
+  <td>
   <strong>Geschlecht:</strong>
+  </td>
+  <td>
   <%= @account.geschlecht %>
-</p>
+  </td>
+  </tr>
 
-<p>
+
+<tr>
+  <td>
   <strong>Fahrerbewertung:</strong>
+  </td>
+  <td>
   <%= @account.fahrerbewertung %>
-</p>
+  </td>
+  </tr>
 
-<p>
+<tr>
+  <td>
   <strong>Mitfahrerbewertung:</strong>
+  </td>
+  <td>
   <%= @account.mitfahrerbewertung %>
-</p>
+  </td>
+  </tr>
 
-<p>
+<tr>
+  <td>
   <strong>Standort:</strong>
+  </td>
+  <td>
   <%= @account.standort %>
-</p>
-
+  </td>
+  </tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+<tr>
+<td>
 <%= link_to 'Nachricht schreiben', new_nachricht_path(empfaenger: @account) %> |
 <%= link_to 'Edit', edit_account_path(@account) %> |
 <%= link_to 'Back', accounts_path %>
+</td>
+<td>
+
+</td>
+</tr>
+</table>
+</div>

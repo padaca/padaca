@@ -34,6 +34,7 @@
   border: 1px solid rewhited;
  }
 
+ 
 
  .wrapper .header{
   background-color: white;
@@ -41,6 +42,11 @@
   grid-template-columns:6fr 4fr;
   justify-content: center;
  }
+
+ .wrapper .content h1 {
+  padding-top: 5px ;
+  padding-bottom: 20px ;
+}
 
  .wrapper .header .lists{
      background-color: white;
@@ -109,8 +115,8 @@ li.unread a::after {
  }
  
 .wrapper .content {
-  width: 75% ;
-  height: 75% ;
+  width: 85% ;
+  height: 85% ;
   border-radius: 25px;
   background-color: white;
   justify-self: center;
@@ -158,16 +164,56 @@ li.unread a::after {
     background-color: rgba(0, 0, 0, .3);
   }
 
-  .wrapper .content table {
+ 
+  .wrapper .content .formtable table {
     margin: 10px;
     margin-left: auto;
     margin-right: auto;
-  border: 1px solid #000000;
-  background-color: #D0D0D0;
-  width: 75%;
+  border: 0px solid #000000;
+  background-color: white;
+  width: 40%;
+  text-align: left;
+  border-collapse: collapse;
+  }
+
+.wrapper .content .formtable {
+  background-color: #FFFFFF;
+  width: 100%;
   text-align: left;
   border-collapse: collapse;
 }
+.wrapper .content .formtable td, .wrapper .content .accountsnarichten th {
+  border: 0px solid #FFFFFF;
+}
+.wrapper .content .formtable tbody td {
+  font-size: 13px;
+  color: #333333;
+}
+.wrapper .content .formtable tfoot td {
+  font-size: 14px;
+}
+.wrapper .content .formtable tfoot .links {
+  text-align: right;
+}
+.wrapper .content .formtable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+.wrapper .content table {
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+border: 1px solid #000000;
+background-color: #D0D0D0;
+width: 75%;
+text-align: left;
+border-collapse: collapse;
+}
+
 .wrapper .content table td,  .wrapper .content table th {
   border: 3px solid #AAAAAA;
   padding: 3px 3px;
