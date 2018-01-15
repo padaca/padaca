@@ -1,31 +1,58 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<h1>Mitfahrt</h1>
+
+<div class="formtable" > 
+<table style="width:30%;">
+<tr>
+<td>
   <strong>Fahrt:</strong>
   <% if @mitfahrer.fahrt %>
+  </td>
+  <td align="right">
     <%= link_to @mitfahrer.fahrt, fahrt_url(@mitfahrer.fahrt.id) %>
+    </td>
   <% end %>
-</p>
+ 
+  </tr>
 
-<p>
+  <tr>
+  <td>
   <strong>Account:</strong>
+  </td>
+  <td align="right">
   <%= @mitfahrer.account %>
-</p>
+  </td>
+  </tr>
 
-<p>
+  <tr>
+  <td>
   <strong>Mitfahrerbewertung:</strong>
+  </td>
+  <td align="right">
   <%= @mitfahrer.mitfahrerbewertung %>
-</p>
+  </td>
+  </tr>
 
-<p>
+  <tr>
+  <td>
   <strong>Fahrerbewertung:</strong>
+  </td>
+  <td align="right">
   <%= @mitfahrer.fahrerbewertung %>
-</p>
+  </td>
+  </tr>
 
-<p>
+  <tr>
+  <td>
   <strong>Istbestatigt:</strong>
+  </td>
+  <td align="right">
   <%= @mitfahrer.istBestatigt %>
-</p>
+</td>
+</tr>
 
+</table>
+</div>
 <%= link_to 'Edit', edit_mitfahrer_path(@mitfahrer) %> |
 <%= link_to 'Back', mitfahrers_path %>

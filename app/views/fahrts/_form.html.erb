@@ -11,47 +11,106 @@
     </div>
   <% end %>
 
+  <div class="formtable" >
+  <table style="width:25%">
+  <tr>
   <div class="field">
-    <%= f.label :von %><br>
+  <td>  
+  <%= f.label :von %>
+    </td>
+    <td align="right">
     <%= f.text_field :von %>
+    </td>
   </div>
+  </tr>
+  <tr>
   <div class="field">
-    <%= f.label :nach %><br>
+  <td>  
+  <%= f.label :nach %>
+    </td>
+    <td align="right">
     <%= f.text_field :nach %>
+    </td>
   </div>
+  </tr>
+  <tr>
   <div class="field">
-    <%= f.label :abfahrt %><br>
+  <td>  
+  <%= f.label :abfahrt %>
+    </td>
+    <td align="right">
     <%= f.date_field :abfahrt %>
+    </td>
   </div>
+  </tr>
+  <tr>
   <div class="field">
-    <%= f.label :dauer %><br>
+  <td>  
+  <%= f.label :dauer %>
+    </td>
+    <td align="right">
     <%= f.number_field :dauer %>
+    </td>
   </div>
+  </tr>
+  <tr>
   <div class="field">
-    <%= f.label :preisProMitfahrer %><br>
+  <td>  
+  <%= f.label :preisProMitfahrer %>
+    </td>
+    <td align="right">
     <%= f.number_field :preisProMitfahrer %>
+    </td>
   </div>
+  </tr>
+  <tr>
   <div class="field">
-    <%= f.label :maxMitfahrer %><br>
+  <td>
+  <%= f.label :maxMitfahrer %>
+    </td>
+    <td align="right">
     <%= f.number_field :maxMitfahrer %>
+    </td>
   </div>
+  
   <% if @fahrt.account.nil? %>
+  </tr>
+  <tr>
   <div class="field">
-    <%= f.label :account_id %><br>
+  <td>
+    <%= f.label :account_id %>
+    </td>
+    <td align="right">
     <%= f.text_field :account_id %>
   </div>
+  </tr>
+  <tr>
   <% else %>
     <%= f.text_field :account_id, hidden: true %>
   <% end %>
   <% unless @fahrt.id.nil? %>
+  </tr>
+  <tr>
   <div class="field">
-    <%= f.label :istGespeichert %><br>
+  <td colspan=2 align="right">
+    <%= f.label :istGespeichert %>
     <%= f.check_box :istGespeichert%>
+  </td>
   </div>
+  </tr>
+  <tr>
   <% else %>
     <%= f.check_box :istGespeichert, hidden: true %>
   <% end %>
+  </tr>
+  <tr>
+ 
   <div class="actions">
+  <td colspan=2 align="center">
     <%= f.submit %>
+    </td>
+  </div>
+  </tr>
+  </table>
   </div>
 <% end %>
