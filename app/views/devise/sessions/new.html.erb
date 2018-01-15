@@ -1,30 +1,52 @@
 <h2>Login</h2>
-
+<div class="formtable" > 
+<table style="width: 25%;">
 <% flash.each do |name, msg| %>
   <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
 <% end %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+ 
+  <tr>
   <div class="field">
-    <%= f.label :email %><br />
+  <td>
+    <%= f.label :email %>
+    </td>
+    <td align="right">
     <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    </td>
     </div>
-  <% end -%>
+    </tr>
+    <tr>
+  <div class="field">
+  <td>
+    <%= f.label :password %>
+    </td>
+    <td align="right">
+    <%= f.password_field :password, autocomplete: "off" %>
+    </td>
+    </div>
+    </tr>
+    
 
+  <tr>
+  <td>
+  <% if devise_mapping.rememberable? -%>
+  <div class="field">
+    <%= f.label :remember_me %>
+      <%= f.check_box :remember_me %>
+      
+    </div>
+    <% end -%>
+  </td>
+  <td align="right">
   <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+  <%= f.submit "Log in" %>
+</div>
+    </td>
+    </tr>
 
+<% end %>
+</table>
+</div>
 <%= render "devise/shared/links" %>

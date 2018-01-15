@@ -1,16 +1,17 @@
 
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 <div class="formtable" >
-<table style="  width: 50%;">
+<table>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <tr>
   <td>
   <div class="field">
-    <%= f.label :email %><br />
-    </td><td>
+    <%= f.label :email %>
+    </td>
+    <td align="right">
     <%= f.email_field :email, autofocus: true %>
-   
+   </td>
   </div>
   </td>
   </tr>
@@ -34,7 +35,7 @@
   <td>
   Pasword
   </td>
-  <td>
+  <td align="right">
     <%= f.password_field :password, autocomplete: "off" %>
   </td>
   </tr>
@@ -53,7 +54,7 @@
   <td >
     <%= f.label :password_confirmation %>
     </td>
-    <td >
+    <td align="right">
     <%= f.password_field :password_confirmation, autocomplete: "off" %>    
     </td>
     </div>
@@ -62,9 +63,9 @@
   <tr>
   <td >
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %>
     </td>
-    <td >
+    <td align="right">
     <%= f.password_field :current_password, autocomplete: "off" %>
     </td>
   </div>
@@ -83,7 +84,7 @@
 <div>
 <div align="center">
 <h3>Delete my account</h3>
-<table style="  width: 50%;">
+<table >
 <tr>
 <td>
 Unhappy?
