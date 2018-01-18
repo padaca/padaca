@@ -32,13 +32,20 @@
 <li><%= link_to t('app.account.change_pw'), edit_account_registration_path %></li>
 <li><%= link_to t('app.account.update_details'), edit_account_path(current_account.id) %></li>
 <% else %>
-<li><%= link_to t('app.account.login'), new_account_session_path %>
+    <li><%= link_to t('app.account.login'), new_account_session_path %></li>
 <% end %>
+</ul>
 </div>
 </div>
 
 <div class="content">
-<%= yield %>
+
+    <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+    <% end %>
+
+    <%= yield %>
+
 </div>
 
 <div class="footer">
