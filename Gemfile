@@ -47,5 +47,7 @@ group :development do
 end
 
 gem 'devise'
+gem 'devise-i18n'
+
 gem 'tzinfo-data'
 gem 'tzinfo'
