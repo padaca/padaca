@@ -1,0 +1,25 @@
+---
+de:
+  app:
+    are_you_sure: "Sind sie sich sicher?"
+    account:
+      logout: "Abmelden"
+      change_pw: "Passwort ändern"
+      update_details: "Kontodaten ändern"
+      login:  "Login"
+    menu:
+      search: "Fahrten suchen"
+      mitfahrts: "Meine Mitfahrten"
+      fahrts: "Meine Fahrten"
+      accounts: "Accounts"
+      nachrichts: "Nachrichten"
+    resource:
+      show: "Anzeigen"
+      delete: "Löschen"
+    nachrichts:
+      sender: "Sender"
+      received: "Empfangen"
+  devise:
+    failure:
+      account:
+        not_found_in_database: "Unbekannter Account!"
