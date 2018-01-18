@@ -16,11 +16,11 @@
 <div class="lists">
 <% if account_signed_in? %>
   <ul>  
-    <li><%= link_to 'Fahrt suchen', fahrts_search_path%></li>
-    <li><%= link_to 'Meine Mitfahrten', mitfahrers_self_path%> </li>
-    <li><%= link_to 'Meine Fahrten', fahrts_path%> </li>
-    <li><%= link_to 'Accounts', accounts_path%></li>
-    <li class="<%= unread_nachrichts_class %>"><%= link_to 'Nachrichten', nachrichts_path%></li>
+    <li><%= link_to t('app.menu.search'), fahrts_search_path%></li>
+    <li><%= link_to t('app.menu.mitfahrts'), mitfahrers_self_path%> </li>
+    <li><%= link_to t('app.menu.fahrts'), fahrts_path%> </li>
+    <li><%= link_to t('app.menu.accounts'), accounts_path%></li>
+    <li class="<%= unread_nachrichts_class %>"><%= link_to t('app.menu.nachrichts'), nachrichts_path%></li>
   </ul>
 <% end %>
 </div>
@@ -28,11 +28,11 @@
 <ul> 
 <% if account_signed_in? %>
 <li><%= link_to current_account, account_url(current_account.id) %></li>
-<li><%= link_to 'Logout', destroy_account_session_path, method: :delete %></li>
-<li><%= link_to "Change your password", edit_account_registration_path %></li>
-<li><%= link_to "Update your account", edit_account_path(current_account.id) %></li>
+<li><%= link_to t('app.account.logout'), destroy_account_session_path, method: :delete %></li>
+<li><%= link_to t('app.account.change_pw'), edit_account_registration_path %></li>
+<li><%= link_to t('app.account.update_details'), edit_account_path(current_account.id) %></li>
 <% else %>
-<li><%= link_to 'Login', new_account_session_path %>
+<li><%= link_to t('app.account.login'), new_account_session_path %>
 <% end %>
 </div>
 </div>
