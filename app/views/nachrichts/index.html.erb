@@ -1,14 +1,12 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Nachrichten</h1>
 
 <table>
   <thead>
     <tr>
       <th>&nbsp;</th> <!-- seen status -->
-      <th>Datum</th>
-      <th>Sender</th>
-      <th colspan="3"></th>
+      <th><%= t('app.nachrichts.received') %></th>
+      <th><%= t('app.nachrichts.sender') %></th>
+      <th></th> <!-- actions -->
     </tr>
   </thead>
 
@@ -16,10 +14,12 @@
     <% @nachrichts.each do |nachricht| %>
       <tr class="<%= nachricht.read ? :read : :unread %>">
         <td class="seen-status <%= nachricht.seen ? :seen : :unseen %>"></td>
-        <td><%= nachricht.created_at < Date.yesterday ? nachricht.created_at : ( time_ago_in_words(nachricht.created_at) + " ago") %></td>
+        <td><%= nachricht.created_at < Date.yesterday ? nachricht.created_at : ( time_ago_in_words(nachricht.created_at)) %></td>
         <td><%= nachricht.sender %></td>
-        <td><%= link_to 'Show', nachricht %></td>
-        <td><%= link_to 'Delete', nachricht, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to t('app.resource.show'), nachricht %> |
+          <%= link_to t('app.resource.delete'), nachricht, method: :delete, data: { confirm: t('app.are_you_sure')} %>
+        </td>
       </tr>
     <% end %>
   </tbody>

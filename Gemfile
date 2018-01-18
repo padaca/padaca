@@ -51,3 +51,5 @@ gem 'devise-i18n'
 
 gem 'tzinfo-data'
 gem 'tzinfo'
+
+gem 'rails-i18n'
