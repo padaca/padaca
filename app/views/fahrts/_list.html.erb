@@ -44,7 +44,7 @@
           <td><%= link_to "Erneut Fahren", new_fahrt_path(fahrt: fahrt) %></td>
         <% else %>
           <td>
-            <%= link_to 'Show', fahrt %>
+            <%= button_to 'Show', fahrt %>
             <% if current_account.id == fahrt.account.id %>
               <%= link_to 'Edit', edit_fahrt_path(fahrt) %>
               <%= link_to 'Destroy', fahrt, method: :delete, data: { confirm: 'Are you sure?' } %>
