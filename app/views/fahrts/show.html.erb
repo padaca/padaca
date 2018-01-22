@@ -97,12 +97,12 @@
 <div class="buttonlist"> 
 <ul >
 <% if @fahrt.account == current_account %>
-<li><%= button_to 'Mitfahrer anzeigen', mitfahrers_path(fahrt: @fahrt)%></li>
+<li><%= button_to 'Mitfahrer anzeigen', mitfahrers_path(fahrt: @fahrt), method: :get%></li>
 <% else %>
-<li><%= button_to 'Mitfahren', new_mitfahrer_path(fahrt: @fahrt) %></li>
+<li><%= button_to 'Mitfahren', new_mitfahrer_path(fahrt: @fahrt)%></li>
 <% end %>
 
-<li><%= button_to 'Edit', edit_fahrt_path(@fahrt) %> </li>
-<li><%= button_to 'Back', fahrts_path %></li>
+<li><%= button_to 'Edit', edit_fahrt_path(@fahrt), method: :get %> </li>
+<li><%= button_to 'Back', fahrts_path, method: :get %></li>
 </ul>
 </div>

@@ -1,9 +1,9 @@
 <h1>Meine Fahrten</h1>
 
-<%= button_to "Zu Mitfahrern wechseln", mitfahrers_path %>
+<%= button_to "Zu Mitfahrern wechseln", mitfahrers_path, method: :get %>
 
 <%= render 'list' %>
 
 <br>
 
-<%= button_to 'Neue Fahrt', new_fahrt_path %>
+<%= button_to 'Neue Fahrt', new_fahrt_path, method: :get %>
