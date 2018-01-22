@@ -27,13 +27,13 @@
   <% if current_account.id == @mitfahrer.account.id%>
     <div class="field">
       <%= f.label :fahrerbewertung %><br>
-      <%= f.number_field :fahrerbewertung %>
+      <%= f.number_field :fahrerbewertung, min: 0, max: 5 %>
     </div>
   <% end %>
   <% if current_account.id == @mitfahrer.fahrt.account.id%>
     <div class="field"> 
       <%= f.label :mitfahrerbewertung %><br>
-      <%= f.number_field :mitfahrerbewertung %>
+      <%= f.number_field :mitfahrerbewertung, min: 0, max: 5 %>
     </div>
     <div class="field">
       <%= f.label :istBestatigt %><br>

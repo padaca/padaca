@@ -49,6 +49,17 @@ class Account < ActiveRecord::Base
   def mitfahrerbewertung_aktualisieren(neue_bewertung)
     puts "-----------------------------------------------------------------------"
     puts neue_bewertung
-    # update_attribute :mitfahrerbewertung, neue_bewertung
+    alte_anzahl_str = ActiveRecord::Base.connection.execute("select count(*) as anzahl from mitfahrers m where m.mitfahrerbewertung is not null and account_id =  " + self.id.to_s)
+    puts alte_anzahl_str
+    alte_anzahl = alte_anzahl_str[0]['anzahl'].to_f
+    puts self.fahrerbewertung
+    if self.fahrerbewertung
+      alte_bewertung = self.fahrerbewertung
+    else
+      alte_bewertung = 0
+    end
+    neuer_wert = (alte_anzahl.to_f * alte_bewertung + neue_bewertung.to_f)/(alte_anzahl.to_f + 1)
+    puts neuer_wert
+    update_attribute :mitfahrerbewertung, neuer_wert
   end
 end
