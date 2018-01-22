@@ -52,6 +52,11 @@ class MitfahrersController < ApplicationController
   # PATCH/PUT /mitfahrers/1
   # PATCH/PUT /mitfahrers/1.json
   def update
+    if mitfahrer_params['fahrerbewertung']
+      Account.find(Fahrt.find(mitfahrer_params['fahrt_id']).account_id).fahrerbewertung_aktualisieren(mitfahrer_params['fahrerbewertung'])
+    elsif mitfahrer_params['mitfahrerbewertung']
+      Account.find(mitfahrer_params['account_id']).mitfahrerbewertung_aktualisieren(mitfahrer_params['fahrerbewertung'])
+    end
     respond_to do |format|
       if @mitfahrer.update(mitfahrer_params)
         format.html { redirect_to @mitfahrer, notice: 'Mitfahrer was successfully updated.' }
