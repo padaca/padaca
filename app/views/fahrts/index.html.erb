@@ -2,6 +2,14 @@
 
 <%= button_to "Zu Mitfahrern wechseln", mitfahrers_path, method: :get %>
 
+<br/>
+
+<% if params[:show_all] == "true" %>
+<%= link_to t('fahrts.past.hide'), fahrts_path() %>
+<% else %>
+<%= link_to t('fahrts.past.show'), fahrts_path(show_all: true) %>
+<% end %>
+
 <%= render 'list' %>
 
 <br>

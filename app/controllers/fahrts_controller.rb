@@ -5,23 +5,35 @@ class FahrtsController < ApplicationController
   # GET /fahrts
   # GET /fahrts.json
   def search
-    @fahrts = []
-    if params[:von] && !params[:von].empty? && params[:nach] && !params[:nach].empty?
-      @fahrts = Fahrt.where("von LIKE '%#{params[:von]}%' and nach LIKE '%#{params[:nach]}%' and abfahrt >= '#{DateTime.now}'")
-    elsif params[:von] && !params[:von].empty?
-      @fahrts = Fahrt.where("von LIKE '%#{params[:von]}%' and abfahrt >= '#{DateTime.now}'")
-    elsif params[:nach] && !params[:nach].empty?
-      @fahrts = Fahrt.where("nach LIKE '%#{params[:nach]}%' and abfahrt >= '#{DateTime.now}'")
+
+    @fahrts = Fahrt.order(abfahrt: :asc).where.not(account: current_account)
+
+    @fahrts = @fahrts.where "abfahrt >= current_timestamp" unless params[:show_all]
+
+    @params_check = %i(von nach).map do |key|
+      par = params[key]
+      @fahrts = @fahrts.where("#{key.to_s} LIKE '%#{par}%'") unless par.nil? or par.empty?  # return as true-ish
     end
 
-    @hide_table = @fahrts.empty?
+    @fahrts = nil unless @params_check.any? # supress query
+
+    @hide_table = @fahrts.nil? || @fahrts.empty? # supress table
+
+    @options[:details] = true
 
   end
 
   def index
+
+    params.permit(:show_all)
+
     @options[:account] = false;
     @options[:marked] = true;
-    @fahrts = Fahrt.where("account_id = ? and abfahrt >= ?", current_account.id, DateTime.now)
+
+    @fahrts = Fahrt.where account: current_account
+
+    @fahrts = @fahrts.where("abfahrt >= ?", DateTime.now) unless params[:show_all]
+
   end
 
   def mitfahrts
@@ -136,6 +148,7 @@ class FahrtsController < ApplicationController
         account: true,
         marked: false,
         new_from_marked: false,
+        details: false,
       }
     end
 end
