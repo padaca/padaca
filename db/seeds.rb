@@ -9,13 +9,13 @@
 users = []
 
 admin = Account.create! email: 'admin@padaca.de', password: 'topsecret', password_confirmation: 'topsecret', istMitarbeiter: true
-fahrt = Fahrt.create! account: admin, von: :Berlin, nach: :Paderborn, abfahrt: 3.days.from_now
+fahrt = Fahrt.create! account: admin, von: :Berlin, nach: :Paderborn, abfahrt: 3.days.from_now, dauer: 300, preisProMitfahrer: 650, maxMitfahrer: 3
 
 10.times do |i|
 
   user = Account.create! email: "user#{i}@padaca.de", password: 'topsecret', password_confirmation: 'topsecret'
 
-  user_fahrt = Fahrt.create! account: user, von: :Paderborn, nach: :Berlin, abfahrt: 2.days.from_now
+  user_fahrt = Fahrt.create! account: user, von: :Paderborn, nach: :Berlin, abfahrt: (8-i).days.from_now, dauer: 300, preisProMitfahrer: 650, maxMitfahrer: 3
 
   Mitfahrer.create! fahrt: fahrt, account: user
   Mitfahrer.create! fahrt: user_fahrt, account: admin
