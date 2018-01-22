@@ -94,12 +94,15 @@
 
 </table>
 </div>
-
+<div class="buttonlist"> 
+<ul >
 <% if @fahrt.account == current_account %>
-  <%= link_to 'Mitfahrer anzeigen', mitfahrers_path(fahrt: @fahrt)%>
+<li><%= button_to 'Mitfahrer anzeigen', mitfahrers_path(fahrt: @fahrt)%></li>
 <% else %>
-  <%= link_to 'Mitfahren', new_mitfahrer_path(fahrt: @fahrt) %>
+<li><%= button_to 'Mitfahren', new_mitfahrer_path(fahrt: @fahrt) %></li>
 <% end %>
 
-<%= link_to 'Edit', edit_fahrt_path(@fahrt) %> |
-<%= link_to 'Back', fahrts_path %>
+<li><%= button_to 'Edit', edit_fahrt_path(@fahrt) %> </li>
+<li><%= button_to 'Back', fahrts_path %></li>
+</ul>
+</div>
