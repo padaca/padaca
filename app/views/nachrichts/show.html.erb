@@ -1,10 +1,10 @@
 <p>
-  <strong>Sender:</strong>
+<strong>Sender:</strong><br/>
   <%= @nachricht.sender %>
 </p>
 
 <p>
-  <strong>Empfaenger:</strong>
+<strong>Empfaenger:</strong><br>
   <%= @nachricht.empfaenger %>
 </p>
 
@@ -13,5 +13,10 @@
   <br/>
   <pre><%= @nachricht.nachricht %></pre>
 </p>
+</div>
 
-<%= link_to 'Back', nachrichts_path %>
+<div class="buttonlist">
+  <ul>
+    <li><%= link_to 'Back', nachrichts_path %></li>
+  </ul>
+</div>

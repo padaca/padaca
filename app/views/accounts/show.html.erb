@@ -46,19 +46,13 @@
   <td>
   <%= @account.standort %>
   </td>
-  </tr>
-<tr><td> </td></tr>
-<tr><td> </td></tr>
-<tr><td> </td></tr>
-<tr>
-<td>
-<%= link_to 'Nachricht schreiben', new_nachricht_path(empfaenger: @account) %> |
-<%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', accounts_path %>
-</td>
-<td>
-
-</td>
 </tr>
 </table>
 </div>
+  <div class="buttonlist">
+    <ul>
+    <li><%= link_to 'Nachricht schreiben', new_nachricht_path(empfaenger: @account) %></li>
+    <li><%= link_to 'Edit', edit_account_path(@account) %></li>
+    <li><%= link_to 'Back', :back %></li>
+    </ul>
+  </div>

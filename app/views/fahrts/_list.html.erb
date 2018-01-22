@@ -40,20 +40,20 @@
               <%= link_to sanitize('&times;'), fahrt_speichern_path(fahrt), method: :delete, remote: true %>
             <% else %>
               :n:
-              <%= button_to 'Speichern', fahrt_speichern_path(fahrt), method: :post, remote: true %>
+              <%= link_to 'Speichern', fahrt_speichern_path(fahrt), method: :post, remote: true %>
             <% end %>
           </td>
         <% end %>
         <% if @options[:new_from_marked] %>
-          <td><%= button_to "Erneut Fahren", new_fahrt_path(fahrt: fahrt), method: :get %></td>
+          <td class="actions"><%= link_to "Erneut Fahren", new_fahrt_path(fahrt: fahrt) %></td>
         <% else %>
-          <td>
-            <%= button_to 'Show', fahrt , method: :get %>
+          <td class="actions">
+            <%= link_to 'Show', fahrt %>
             <% if current_account.id == fahrt.account.id %>
-              <%= button_to 'Edit', edit_fahrt_path(fahrt) %>
-              <%= button_to 'Destroy', fahrt, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Edit', edit_fahrt_path(fahrt) %>
+              <%= link_to 'Destroy', fahrt, method: :delete, data: { confirm: 'Are you sure?' } %>
             <% else %>
-              <%= button_to 'Mitfahren', new_mitfahrer_path(fahrt: fahrt) , method: :get%>
+              <%= link_to 'Mitfahren', new_mitfahrer_path(fahrt: fahrt) %>
             <% end %>
           </td>
         <% end %>

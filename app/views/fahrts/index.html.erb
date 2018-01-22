@@ -1,17 +1,21 @@
 <h1>Meine Fahrten</h1>
 
-<%= button_to "Zu Mitfahrern wechseln", mitfahrers_path, method: :get %>
-
-<br/>
+<div class="actions">
+<p>
+<%= link_to "Zu Mitfahrern wechseln", mitfahrers_path %>
 
 <% if params[:show_all] == "true" %>
 <%= link_to t('fahrts.past.hide'), fahrts_path() %>
 <% else %>
 <%= link_to t('fahrts.past.show'), fahrts_path(show_all: true) %>
 <% end %>
+</p>
+</div>
 
 <%= render 'list' %>
 
 <br>
 
-<%= button_to 'Neue Fahrt', new_fahrt_path, method: :get %>
+<div class="actions">
+<%= link_to 'Neue Fahrt', new_fahrt_path %>
+</div>
