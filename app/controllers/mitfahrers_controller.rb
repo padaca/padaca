@@ -5,12 +5,14 @@ class MitfahrersController < ApplicationController
   # GET /mitfahrers.json
   def index
     @counterpart = :mitfahrer
-    @mitfahrers = Mitfahrer.joins(:fahrt).where(fahrts: { account_id: current_account.id })
+    @mitfahrers = Mitfahrer.joins(:fahrt).where(fahrts: { account_id: current_account.id }).includes(:fahrt)
 
     if mitfahrer_filter_params[:fahrt]
       @mitfahrers.where!(fahrt_id: params[:fahrt])
       @summary = Fahrt.find(params[:fahrt])
     end
+
+    @mitfahrts = @mitfahrers.group_by(&:fahrt)
 
   end
 

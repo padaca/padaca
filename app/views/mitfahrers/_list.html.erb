@@ -21,24 +21,29 @@
 
   <tbody>
 
-    <% @mitfahrers.each do |mitfahrer| %>
-      <tr>
+    <% @mitfahrts.each do |fahrt, mitfahrers| %>
+      <% span = mitfahrers.size %>
+      <% mitfahrers.each.with_index do |mitfahrer, i| %>
+        <tr>
 
-        <% unless @summary %>
-          <td><%= mitfahrer.fahrt.von %></td>
-          <td><%= mitfahrer.fahrt.nach %></td>
-        <% end %>
+          <% unless @summary %>
+            <% if i == 0 %>
+              <td rowspan="<%= span %>"><%= fahrt.von %></td>
+              <td rowspan="<%= span %>"><%= fahrt.nach %></td>
+            <% end %>
+          <% end %>
 
-        <% if @counterpart %>
-          <td><%= mitfahrer_counterpart(mitfahrer) %></td>
-        <% end %>
+          <% if @counterpart %>
+            <td><%= mitfahrer_counterpart(mitfahrer) %></td>
+          <% end %>
 
-        <td><%= mitfahrer.istBestatigt ? ':y:' : ':n:' %></td>
-        <td>
-          <%= link_to "Anzeigen", mitfahrer_path(mitfahrer) %>
-          <%= link_to "Bearbeiten", edit_mitfahrer_path(mitfahrer) %>
-        </td>
-      </tr>
+          <td><%= mitfahrer.istBestatigt ? ':y:' : ':n:' %></td>
+          <td>
+            <%= link_to "Anzeigen", mitfahrer_path(mitfahrer) %>
+            <%= link_to "Bearbeiten", edit_mitfahrer_path(mitfahrer) %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
