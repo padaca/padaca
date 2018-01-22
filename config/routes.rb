@@ -30,7 +30,11 @@ Rails.application.routes.draw do
 
   get '/mitfahrers/self'
 
-  resources :mitfahrers
+  resources :mitfahrers do
+    post :bestaetigen, to: 'mitfahrers#confirm'
+    delete :bestaetigen, to: 'mitfahrers#cancel'
+  end
+
   resources :fahrts do
       post :speichern, to: 'fahrts#mark'
       delete :speichern, to: 'fahrts#unmark'
