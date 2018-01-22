@@ -1,19 +1,21 @@
 <table>
   <thead>
     <tr>
-      <th>Von</th>
-      <th>Nach</th>
-      <th>Abfahrt</th>
-      <th>Dauer</th>
-      <th>Preispromitfahrer</th>
-      <th>Maxmitfahrer</th>
+      <th><%= t('fahrts.from') %></th>
+      <th><%= t('fahrts.to') %></th>
+      <th><%= t('fahrts.departure') %></th>
+      <% if @options[:details] %>
+        <th><%= t('fahrts.duration') %></th>
+        <th><%= t('fahrts.price') %></th>
+        <th><%= t('fahrts.seats') %></th>
+      <% end %>
       <% if @options[:account] %>
-        <th>Account</th>
+        <th><%= t('fahrts.account') %></th>
       <% end %>
       <% if @options[:marked] %>
-      <th>Gepeichert</th>
+      <th><%= t('fahrts.marked') %></th>
       <% end %>
-      <th>Aktionen</th>
+      <th><%= t('fahrts.actions') %></th>
     </tr>
   </thead>
 
@@ -23,11 +25,13 @@
         <td><%= fahrt.von %></td>
         <td><%= fahrt.nach %></td>
         <td><%= fahrt.abfahrt %></td>
-        <td><%= fahrt.dauer %></td>
-        <td><%= fahrt.preisProMitfahrer %></td>
-        <td><%= fahrt.maxMitfahrer %></td>
+        <% if @options[:details] %>
+          <td><%= (fahrt.dauer / 60.0) %> h</td>
+          <td><%= "%.2f" % (fahrt.preisProMitfahrer / 100.0) %> €</td>
+          <td style="text-align:center;"><%= fahrt.maxMitfahrer %></td>
+        <% end %>
         <% if @options[:account] %>
-        <td><%= fahrt.account %></td>
+        <td><%= link_to fahrt.account, fahrt.account %></td>
         <% end %>
         <% if @options[:marked] %>
           <td>
