@@ -32,6 +32,9 @@ de:
     past:
       show: "alte Fahrten anzeigen"
       hide: "alte Fahrten ausblenden"
+  nachrichts:
+    show:
+      reply: "Antworten"
   devise:
     failure:
       account:
