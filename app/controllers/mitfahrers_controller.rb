@@ -18,7 +18,7 @@ class MitfahrersController < ApplicationController
 
   def self
     @counterpart = :fahrer
-    @mitfahrers = Mitfahrer.where(account: current_account)
+    @mitfahrts = Mitfahrer.where(account: current_account).includes(:fahrt).group_by(&:fahrt)
   end
 
   # GET /mitfahrers/1
