@@ -14,12 +14,11 @@
  *= require_self
  */
 
- html, body {
-            
-            margin: 0px;
-        }
+html, body {
+  margin: 0px;
+}
 
- .wrapper {
+.wrapper {
   display:grid;
   height: 100vh;
   grid-template-columns:1fr;
@@ -32,35 +31,32 @@
   background-size:cover;
   background-color:white;
   border: 1px solid rewhited;
- }
+}
 
- 
-
- .wrapper .header{
+.wrapper .header{
   background-color: white;
   display:grid;
   grid-template-columns:6fr 4fr;
   justify-content: center;
- }
+}
 
- .wrapper .content h1 {
+.wrapper .content h1 {
   padding-top: 5px ;
   padding-bottom: 20px ;
 }
 
- .wrapper .header .lists{
-     background-color: white;
- }
+.wrapper .header .lists{
+  background-color: white;
+}
 
- .wrapper .header ul{
+.wrapper .header ul{
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
- }
+}
 
-
- .wrapper .header li {
+.wrapper .header li {
   float: left;
 }
 
@@ -76,36 +72,34 @@
   color: white;
 }
 
-
-
 .wrapper .content .buttonlist ul{
   list-style-type: none;
   width: 70%;
   margin: auto;
   overflow: hidden;
- }
- .wrapper .content .buttonlist li{
+}
+
+.wrapper .content .buttonlist li{
   display: inline-block;
   margin: 0 auto;
   padding: 2px;
- }
+}
 
 /* Menu unread indicator */
 li.unread a::after {
-    content: " •";
-    color: blue;
+  content: " •";
+  color: blue;
 }
-
 
 .wrapper .footer ul{
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
- }
+}
 
- .wrapper .footer li {
-     float: left;
+.wrapper .footer li {
+  float: left;
 }
 
 .wrapper .footer li a {
@@ -120,15 +114,15 @@ li.unread a::after {
   color: white;
 }
 
- .wrapper .header .login{
+.wrapper .header .login{
   justify-self: end;
   background-color: white;
- }
+}
 
- wrapper .header .login ul {  
-   align-self: right;
- }
- 
+wrapper .header .login ul {  
+  align-self: right;
+}
+
 .wrapper .content {
   width: 85% ;
   height: 85% ;
@@ -140,9 +134,9 @@ li.unread a::after {
   text-align: center;
   color: black;
   padding: 10px;
- }
+}
 
- .wrapper .content a {
+.wrapper .content a {
   color: black;
   text-align: center;
 }
@@ -161,35 +155,34 @@ li.unread a::after {
   justify-self: center;
 }
 
-  .table-scrollable {
-    width: 100%;
-    overflow-y: auto;
-    margin: 0 0 1em;
-  }
-  
-  .table-scrollable::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 14px;
-    height: 14px;
-  }
-  
-  .table-scrollable::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    border: 3px solid #fff;
-    background-color: rgba(0, 0, 0, .3);
-  }
+.table-scrollable {
+  width: 100%;
+  overflow-y: auto;
+  margin: 0 0 1em;
+}
 
- 
-  .wrapper .content .formtable table {
-    margin: 10px;
-    margin-left: auto;
-    margin-right: auto;
+.table-scrollable::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+}
+
+.table-scrollable::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 3px solid #fff;
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.wrapper .content .formtable table {
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
   border: 0px solid #000000;
   background-color: white;
   width: 40%;
   text-align: left;
   border-collapse: collapse;
-  }
+}
 
 .wrapper .content .formtable {
   background-color: #FFFFFF;
@@ -215,16 +208,20 @@ li.unread a::after {
 .wrapper .content .formtable td, .wrapper .content .accountsnarichten th {
   border: 0px solid #FFFFFF;
 }
+
 .wrapper .content .formtable tbody td {
   font-size: 13px;
   color: #333333;
 }
+
 .wrapper .content .formtable tfoot td {
   font-size: 14px;
 }
+
 .wrapper .content .formtable tfoot .links {
   text-align: right;
 }
+
 .wrapper .content .formtable tfoot .links a{
   display: inline-block;
   background: #1C6EA4;
@@ -237,11 +234,11 @@ li.unread a::after {
   margin: 10px;
   margin-left: auto;
   margin-right: auto;
-border: 1px solid #000000;
-background-color: white;
-width: 75%;
-text-align: left;
-border-collapse: collapse;
+  border: 1px solid #000000;
+  background-color: white;
+  width: 75%;
+  text-align: left;
+  border-collapse: collapse;
 }
 
 .wrapper .content table {
@@ -250,9 +247,9 @@ border-collapse: collapse;
 }
 
 .wrapper .content table td,  .wrapper .content table th {
-  
   padding: 3px 3px;
 }
+
 .wrapper .content table tbody td {
   border-bottom: 1px solid gainsboro;
   border-top: 1px solid gainsboro;
@@ -261,9 +258,11 @@ border-collapse: collapse;
   border-collapse: collapse
   font-size: 13px;
 }
+
 .wrapper .content table thead {
   background: black;
 }
+
 .wrapper .content table thead th {
   border: 1px solid black;
   font-size: 15px;
@@ -271,12 +270,14 @@ border-collapse: collapse;
   color: #F5F5F5;
   text-align: center;
 }
+
 .wrapper .content table tfoot td {
   font-size: 14px;
 }
 .wrapper .content table tfoot .links {
   text-align: right;
 }
+
 .wrapper .content table tfoot .links a{
   display: inline-block;
   background: #1C6EA4;
@@ -294,13 +295,16 @@ border-collapse: collapse;
 }
 
 
-  @media (max-width: 400px) {
-    .wrapper .header{
-      grid-template-columns:1fr;
+@media (max-width: 400px) {
+
+  .wrapper .header{
+    grid-template-columns:1fr;
   }
+
   .wrapper .header .login{
     justify-self: start;
   }
+
 }
 
 .alert.alert-info {
