@@ -5,8 +5,11 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    # @accounts = Account.where(:istMitarbeiter => false)
-    @accounts = Account.all
+    if current_account.istMitarbeiter
+      @accounts = Account.all
+    else 
+      redirect_to fahrts_path
+    end
   end
 
   # GET /accounts/1

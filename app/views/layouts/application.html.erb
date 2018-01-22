@@ -14,12 +14,16 @@
 <div class="header">
 <div class="lists">
 <% if account_signed_in? %>
-  <ul>  
-    <li><%= link_to t('.search'), fahrts_search_path%></li>
-    <li><%= link_to t('.mitfahrts'), mitfahrers_self_path%> </li>
-    <li><%= link_to t('.fahrts'), fahrts_path%> </li>
+<ul>  
+  <li><%= link_to t('.search'), fahrts_search_path%></li>
+  <li><%= link_to t('.mitfahrts'), mitfahrers_self_path%> </li>
+  <li><%= link_to t('.fahrts'), fahrts_path%> </li>
+  
+  <% if current_account.istMitarbeiter %>
     <li><%= link_to t('.accounts'), accounts_path%></li>
-    <li class="<%= unread_nachrichts_class %>"><%= link_to t('.nachrichts'), nachrichts_path%></li>
+  <% end %>
+  
+  <li class="<%= unread_nachrichts_class %>"><%= link_to t('.nachrichts'), nachrichts_path%></li>
   </ul>
 <% end %>
 </div>
