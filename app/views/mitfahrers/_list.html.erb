@@ -38,7 +38,7 @@
           <% end %>
 
           <td><%= mitfahrer.istBestatigt ? ':y:' : ':n:' %></td>
-          <td>
+          <td class="actions">
             <%= link_to "Anzeigen", mitfahrer_path(mitfahrer) %>
             <%= link_to "Bearbeiten", edit_mitfahrer_path(mitfahrer) %>
           </td>

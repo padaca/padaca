@@ -29,17 +29,21 @@
         <td><%= account.mitfahrerbewertung %></td>
         <td><%= account.standort %></td>
         <td><%= account.is_active %></td>
-        <td><%= link_to 'Show', account %></td>
+        <td class="actions"><%= link_to 'Show', account %></td>
+        <td class="actions">
         <% if current_account.id == account.id %>
-          <td><%= link_to 'Edit', edit_account_path(account) %></td>
+         <%= link_to 'Edit', edit_account_path(account) %>
         <% end %>
+        </td>
         <% if current_account.istMitarbeiter && current_account.id != account.id %>
-          <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="actions"><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="actions">
           <% if account.is_active%>
-            <td><%=link_to "deactivate", deactivate_path(account_id: account), method: :post, data: { confirm: "Are you sure?" } %></td>
+              <%=link_to "deactivate", deactivate_path(account_id: account), method: :post, data: { confirm: "Are you sure?" } %>
           <% else %>
-            <td><%=link_to "activate", activate_path(account_id: account), method: :post, data: { confirm: "Are you sure?" } %></td>
+              <%=link_to "activate", activate_path(account_id: account), method: :post, data: { confirm: "Are you sure?" } %>
           <% end %>
+          </td>
         <% end %>
       </tr>
     <% end %>
