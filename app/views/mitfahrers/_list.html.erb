@@ -37,10 +37,23 @@
             <td><%= mitfahrer_counterpart(mitfahrer) %></td>
           <% end %>
 
-          <td><%= mitfahrer.istBestatigt ? ':y:' : ':n:' %></td>
+          <td>
+            <%= mitfahrer.istBestatigt ? ':y:' : ':n:' %>
+            <% if mitfahrer.fahrt.account == current_account %>
+              <% if mitfahrer.istBestatigt %>
+                <%= link_to ":-1:", mitfahrer_bestaetigen_path(mitfahrer), method: :delete, remote: true %>
+              <% else %>
+                <%= link_to ":+1:", mitfahrer_bestaetigen_path(mitfahrer), method: :post, remote: true %>
+              <% end %>
+            <% end %>
+          </td>
+
           <td class="actions">
             <%= link_to "Anzeigen", mitfahrer_path(mitfahrer) %>
-            <%= link_to "Bearbeiten", edit_mitfahrer_path(mitfahrer) %>
+
+            <% if mitfahrer.fahrt.account == current_account %>
+              <%= link_to "Bearbeiten", edit_mitfahrer_path(mitfahrer) %>
+            <% end %>
           </td>
         </tr>
       <% end %>

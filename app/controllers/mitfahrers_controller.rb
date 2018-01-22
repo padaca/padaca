@@ -80,6 +80,17 @@ class MitfahrersController < ApplicationController
     end
   end
 
+  def confirm(confirm = true)
+    @mitfahrer = Mitfahrer.find(params[:mitfahrer_id]);
+    @mitfahrer.istBestatigt = confirm
+    @mitfahrer.save!
+    redirect_to :back
+  end
+
+  def cancel
+    confirm(false)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_mitfahrer
