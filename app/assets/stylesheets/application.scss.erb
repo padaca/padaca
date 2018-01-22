@@ -19,6 +19,7 @@ html, body {
 }
 
 .wrapper {
+
   display:grid;
   height: 100vh;
   grid-template-columns:1fr;
@@ -31,128 +32,298 @@ html, body {
   background-size:cover;
   background-color:white;
   border: 1px solid rewhited;
-}
 
-.wrapper .header{
-  background-color: white;
-  display:grid;
-  grid-template-columns:6fr 4fr;
-  justify-content: center;
-}
+  .header{
 
-.wrapper .content h1 {
-  padding-top: 5px ;
-  padding-bottom: 20px ;
-}
+    background-color: white;
+    display:grid;
+    grid-template-columns:6fr 4fr;
+    justify-content: center;
 
-.wrapper .header .lists{
-  background-color: white;
-}
+    .lists{
+      background-color: white;
+    }
 
-.wrapper .header ul{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
+    ul{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
 
-.wrapper .header li {
-  float: left;
-}
+    li {
+      float: left;
 
-.wrapper .header li a {
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+      a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
 
-.wrapper .header li a:hover {
-  color: white;
-}
+      }
 
-.wrapper .content .buttonlist ul{
-  list-style-type: none;
-  width: 70%;
-  margin: auto;
-  overflow: hidden;
-}
+      a:hover {
+        color: white;
+      }
 
-.wrapper .content .buttonlist li{
-  display: inline-block;
-  margin: 0 auto;
-  padding: 2px;
+    } // li
+
+    .login{
+
+      justify-self: end;
+      background-color: white;
+
+      ul {
+        align-self: right;
+      }
+
+    } // .login
+
+  } // .header
+
+  .content {
+
+    width: 85% ;
+    height: 85% ;
+    border-radius: 25px;
+    background-color: white;
+    justify-self: center;
+    opacity: 0.85;
+    align-self: center;
+    text-align: center;
+    color: black;
+    padding: 10px;
+
+    h1 {
+      padding-top: 5px ;
+      padding-bottom: 20px ;
+    }
+
+    .buttonlist {
+
+      ul{
+        list-style-type: none;
+        width: 70%;
+        margin: auto;
+        overflow: hidden;
+      }
+
+      li{
+        display: inline-block;
+        margin: 0 auto;
+        padding: 2px;
+      }
+
+    } // .buttonlist
+
+    a {
+      color: black;
+      text-align: center;
+    }
+
+    a:hover {
+      color: blue;
+      background:white;
+    }
+
+    // Link Buttons, Buttons
+    a.btn, a.actions, input[type="submit"] {
+      background: white;
+      color: black;
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 2.5px 5px;
+      text-decoration: none;
+    }
+
+
+    .formtable {
+
+      background-color: #FFFFFF;
+      width: 100%;
+      text-align: left;
+      border-collapse: collapse;
+
+      table {
+        margin: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 0px solid #000000;
+        background-color: white;
+        width: 40%;
+        text-align: left;
+        border-collapse: collapse;
+
+        // "Primary" (Link-)Buttons
+        a, input[type="submit"] {
+          background: white;
+          color: black;
+          border: 1px solid black;
+          border-radius: 5px;
+          padding: 2.5px 5px;
+          text-decoration: none;
+        }
+      } // table
+
+      td {
+        border: 0px solid #FFFFFF;
+      }
+
+      tbody td {
+        font-size: 13px;
+        color: #333333;
+      }
+
+      tfoot {
+
+        td {
+          font-size: 14px;
+        }
+
+        .links {
+
+          text-align: right;
+
+          a{
+            display: inline-block;
+            background: #1C6EA4;
+            color: #FFFFFF;
+            padding: 2px 8px;
+            border-radius: 5px;
+          }
+
+        } // .links
+
+      } // tfoot
+
+    } // .formtable
+
+    table {
+
+      margin: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid gainsboro;
+      background-color: white;
+      width: 75%;
+      text-align: left;
+      border-collapse: collapse;
+
+      .actions a, input[type="submit"] {
+        background: #219b21;
+        color: white;
+        margin: 3px;
+        border: 1px solid #219b21;
+        border-radius: 5px;
+        padding: 2.5px 5px;
+        text-decoration: none;
+      }
+
+      td,  th {
+        padding: 3px 3px;
+      }
+
+      thead {
+
+        background: black;
+
+        th {
+          border: 1px solid black;
+          font-size: 15px;
+          font-weight: bold;
+          color: #F5F5F5;
+          text-align: center;
+        }
+
+      } // thead
+
+      tbody td {
+        border-bottom: 1px solid gainsboro;
+        border-top: 1px solid gainsboro;
+        border-left: 0px;
+        border-right: 0px;
+        border-collapse: collapse;
+        font-size: 13px;
+      }
+
+      tfoot {
+
+        td {
+          font-size: 14px;
+        }
+
+        .links {
+          text-align: right;
+        }
+
+        .links a{
+          display: inline-block;
+          background: #1C6EA4;
+          color: #FFFFFF;
+          padding: 2px 8px;
+          border-radius: 5px;
+        }
+
+      } // tfoot
+
+    } // table
+
+  } // .content
+
+  .footer {
+
+    display:grid;
+    background-color: white;
+
+    ul{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    li {
+      float: left;
+
+      a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: white;
+      }
+
+    } // li
+
+    .footerlist{
+      justify-self: center;
+    }
+
+  } // .footer
+
+} // .wrapper
+
+@media (max-width: 400px) {
+
+  .wrapper .header{
+    grid-template-columns:1fr;
+  }
+
+  .wrapper .header .login{
+    justify-self: start;
+  }
+
 }
 
 /* Menu unread indicator */
 li.unread a::after {
   content: " •";
   color: blue;
-}
-
-.wrapper .footer ul{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.wrapper .footer li {
-  float: left;
-}
-
-.wrapper .footer li a {
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.wrapper .footer li a:hover {
-  color: white;
-}
-
-.wrapper .header .login{
-  justify-self: end;
-  background-color: white;
-}
-
-wrapper .header .login ul {  
-  align-self: right;
-}
-
-.wrapper .content {
-  width: 85% ;
-  height: 85% ;
-  border-radius: 25px;
-  background-color: white;
-  justify-self: center;
-  opacity: 0.85;
-  align-self: center;
-  text-align: center;
-  color: black;
-  padding: 10px;
-}
-
-.wrapper .content a {
-  color: black;
-  text-align: center;
-}
-
-.wrapper .content a:hover {
-  color: blue;
-  background:white;
-}
-
-.wrapper .footer{ 
-  display:grid;
-  background-color: white;
-}
-
-.wrapper .footer .footerlist{
-  justify-self: center;
 }
 
 .table-scrollable {
@@ -171,140 +342,6 @@ wrapper .header .login ul {
   border-radius: 8px;
   border: 3px solid #fff;
   background-color: rgba(0, 0, 0, .3);
-}
-
-.wrapper .content .formtable table {
-  margin: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  border: 0px solid #000000;
-  background-color: white;
-  width: 40%;
-  text-align: left;
-  border-collapse: collapse;
-}
-
-.wrapper .content .formtable {
-  background-color: #FFFFFF;
-  width: 100%;
-  text-align: left;
-  border-collapse: collapse;
-}
-
-.wrapper .content input[type="submit"] {
-  background: white;
-  color: black;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-.wrapper .content .formtable table input[type="submit"] {
-  background: white;
-  color: black;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-.wrapper .content .formtable td, .wrapper .content .accountsnarichten th {
-  border: 0px solid #FFFFFF;
-}
-
-.wrapper .content .formtable tbody td {
-  font-size: 13px;
-  color: #333333;
-}
-
-.wrapper .content .formtable tfoot td {
-  font-size: 14px;
-}
-
-.wrapper .content .formtable tfoot .links {
-  text-align: right;
-}
-
-.wrapper .content .formtable tfoot .links a{
-  display: inline-block;
-  background: #1C6EA4;
-  color: #FFFFFF;
-  padding: 2px 8px;
-  border-radius: 5px;
-}
-
-.wrapper .content table {
-  margin: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid #000000;
-  background-color: white;
-  width: 75%;
-  text-align: left;
-  border-collapse: collapse;
-}
-
-.wrapper .content table {
-  border: 1px solid gainsboro;
-  border-collapse: collapse
-}
-
-.wrapper .content table td,  .wrapper .content table th {
-  padding: 3px 3px;
-}
-
-.wrapper .content table tbody td {
-  border-bottom: 1px solid gainsboro;
-  border-top: 1px solid gainsboro;
-  border-left: 0px;
-  border-right: 0px;
-  border-collapse: collapse
-  font-size: 13px;
-}
-
-.wrapper .content table thead {
-  background: black;
-}
-
-.wrapper .content table thead th {
-  border: 1px solid black;
-  font-size: 15px;
-  font-weight: bold;
-  color: #F5F5F5;
-  text-align: center;
-}
-
-.wrapper .content table tfoot td {
-  font-size: 14px;
-}
-.wrapper .content table tfoot .links {
-  text-align: right;
-}
-
-.wrapper .content table tfoot .links a{
-  display: inline-block;
-  background: #1C6EA4;
-  color: #FFFFFF;
-  padding: 2px 8px;
-  border-radius: 5px;
-}
-
-.wrapper .content table input[type="submit"] {
-  background: #33cc33;
-  color: white;
-  margin: 3px;
-  border: 1px solid #33cc33;
-  border-radius: 10px;
-}
-
-
-@media (max-width: 400px) {
-
-  .wrapper .header{
-    grid-template-columns:1fr;
-  }
-
-  .wrapper .header .login{
-    justify-self: start;
-  }
-
 }
 
 .alert.alert-info {
