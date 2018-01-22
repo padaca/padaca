@@ -20,6 +20,14 @@ de:
       sender: "Sender"
       received: "Empfangen"
   fahrts:
+    from: "Von"
+    to: "Nach"
+    departure: "Abfahrt"
+    duration: "Dauer"
+    price: "Preis"
+    seats: "Sitzplätze"
+    account: "FahrerIn"
+    actions: "Aktionen"
     past:
       show: "alte Fahrten anzeigen"
       hide: "alte Fahrten ausblenden"

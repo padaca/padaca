@@ -19,6 +19,8 @@ class FahrtsController < ApplicationController
 
     @hide_table = @fahrts.nil? || @fahrts.empty? # supress table
 
+    @options[:details] = true
+
   end
 
   def index
@@ -146,6 +148,7 @@ class FahrtsController < ApplicationController
         account: true,
         marked: false,
         new_from_marked: false,
+        details: false,
       }
     end
 end
