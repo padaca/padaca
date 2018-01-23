@@ -1,6 +1,9 @@
 class NachrichtsController < ApplicationController
   before_action :set_nachricht, only: [:show, :edit, :update, :destroy]
 
+  before_action :restore_old_url, only: [:create, :update]
+  before_action :store_old_url, only: [:new, :show, :edit]
+
   # GET /nachrichts
   # GET /nachrichts.json
   def index
