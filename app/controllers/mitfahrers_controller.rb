@@ -2,7 +2,7 @@ class MitfahrersController < ApplicationController
   before_action :set_mitfahrer, only: [:show, :edit, :update, :destroy]
 
   before_action :restore_old_url, only: [:create, :update]
-  before_action :store_old_url, only: [:new, :show, :edit]
+  before_action :capture_old_url, only: [:new, :show, :edit, :create]
 
   # GET /mitfahrers
   # GET /mitfahrers.json

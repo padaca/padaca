@@ -2,7 +2,7 @@ class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
 
   before_action :restore_old_url, only: [:create, :update]
-  before_action :store_old_url, only: [:show, :edit, :new]
+  before_action :capture_old_url, only: [:new, :show, :edit, :create]
 
   # GET /accounts
   # GET /accounts.json
