@@ -2,6 +2,9 @@ class FahrtsController < ApplicationController
   before_action :set_fahrt, only: [:show, :edit, :update, :destroy]
   before_action :set_options
 
+  before_action :restore_old_url, only: [:create, :update]
+  before_action :store_old_url, only: [:show, :edit, :new]
+
   # GET /fahrts
   # GET /fahrts.json
   def search
