@@ -1,9 +1,10 @@
 class FahrtsController < ApplicationController
+
   before_action :set_fahrt, only: [:show, :edit, :update, :destroy]
   before_action :set_options
 
-  before_action :restore_old_url, only: [:create, :update]
-  before_action :store_old_url, only: [:show, :edit, :new]
+  after_action :restore_old_url, only: [:create, :update]
+  before_action :capture_old_url, only: [:new, :show, :edit, :create]
 
   # GET /fahrts
   # GET /fahrts.json
