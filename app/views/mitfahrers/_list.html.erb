@@ -41,8 +41,14 @@
 
           <td>
             <span class="mark <%= mitfahrer.istBestatigt ? 'marked' : '' %>">
-              <%= link_to_if(mitfahrer.fahrt.account == current_account, mitfahrer_bestaetigen_path(mitfahrer), method: (mitfahrer.istBestatigt ? :delete : :post), remote: true) do%>
-                <div class=markLocked>&nbsp;</div>
+              <% if mitfahrer.fahrt.account == current_account %>
+                <%= link_to(mitfahrer_bestaetigen_path(mitfahrer), method: (mitfahrer.istBestatigt ? :delete : :post), remote: true, class: :marked) do %>
+                  <div class=mark>&nbsp;</div>
+                <% end %>
+              <% else %>
+                <div class="mark">
+                  <div class=markLocked>
+                </div>
               <% end %>
             </span>
           </td>
