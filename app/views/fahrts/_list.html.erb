@@ -54,7 +54,7 @@
               <%= link_to 'Edit', edit_fahrt_path(fahrt) %>
               <%= link_to 'Destroy', fahrt, method: :delete, data: { confirm: 'Are you sure?' } %>
             <% else %>
-              <%= link_to 'Mitfahren', new_mitfahrer_path(fahrt: fahrt) %>
+              <%= link_to 'Mitfahren', fahrt_mitfahren_path(fahrt), method: :post, remote: true, data: { confirm: "Wirklich mitfahren?" } %>
             <% end %>
           </td>
         <% end %>

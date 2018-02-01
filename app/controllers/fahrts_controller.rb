@@ -138,6 +138,11 @@ class FahrtsController < ApplicationController
       render 'marked'
   end
 
+  def join
+    Mitfahrer.new(fahrt_id: params[:fahrt_id], account: current_account).save
+    redirect_to :back
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_fahrt

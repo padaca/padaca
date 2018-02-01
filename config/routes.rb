@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   resources :fahrts do
       post :speichern, to: 'fahrts#mark'
       delete :speichern, to: 'fahrts#unmark'
+
+      post :mitfahren, to: 'fahrts#join'
   end
   resources :accounts
   # The priority is based upon order of creation: first created -> highest priority.
