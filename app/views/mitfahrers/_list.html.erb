@@ -8,6 +8,7 @@
     <% unless @summary %>
     <th>Von</th>
     <th>Nach</th>
+    <th>Abfahrt</th>
     <% end %>
 
     <% if @counterpart %>
@@ -30,6 +31,7 @@
             <% if i == 0 %>
               <td rowspan="<%= span %>"><%= fahrt.von %></td>
               <td rowspan="<%= span %>"><%= fahrt.nach %></td>
+              <td rowspan="<%= span %>"><%= fahrt.abfahrt %></td>
             <% end %>
           <% end %>
 
