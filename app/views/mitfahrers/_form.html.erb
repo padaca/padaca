@@ -24,13 +24,13 @@
     <%= f.hidden_field :account_id %>
     <%= @mitfahrer.account.to_s%>
   </div>
-  <% if current_account.id == @mitfahrer.account.id%>
+  <% if current_account.id == @mitfahrer.account.id and @mitfahrer.id != nil %>
     <div class="field">
       <%= f.label :fahrerbewertung %><br>
       <%= f.number_field :fahrerbewertung, min: 0, max: 5 %>
     </div>
   <% end %>
-  <% if current_account.id == @mitfahrer.fahrt.account.id%>
+  <% if current_account.id == @mitfahrer.fahrt.account.id and @mitfahrer.id != nil %>
     <div class="field"> 
       <%= f.label :mitfahrerbewertung %><br>
       <%= f.number_field :mitfahrerbewertung, min: 0, max: 5 %>
