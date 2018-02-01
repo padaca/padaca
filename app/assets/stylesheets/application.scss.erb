@@ -141,7 +141,7 @@ html, body {
     }
 
 
-    .formtable {
+    .displaytable {
 
       background-color: #FFFFFF;
       width: 100%;
@@ -162,15 +162,6 @@ html, body {
         text-align: left;
         border-collapse: collapse;
 
-        // "Primary" (Link-)Buttons
-        a, input[type="submit"] {
-          background: white;
-          color: black;
-          border: 1px solid black;
-          border-radius: 5px;
-          padding: 2.5px 5px;
-          text-decoration: none;
-        }
       } // table
 
       td {
@@ -205,7 +196,25 @@ html, body {
 
       } // tfoot
 
-    } // .formtable
+    } // .displaytable
+
+    .formtable {
+
+        @extend .displaytable;
+
+        .table {
+            // "Primary" (Link-)Buttons
+            a, input[type="submit"] {
+                background: white;
+                color: black;
+                border: 1px solid black;
+                border-radius: 5px;
+                padding: 2.5px 5px;
+                text-decoration: none;
+            }
+        }
+    }
+
 
     table {
 
