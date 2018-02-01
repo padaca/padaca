@@ -38,10 +38,15 @@
           <% end %>
 
           <td>
-            <%= mitfahrer.istBestatigt ? ':y:' : ':n:' %>
+            <% if mitfahrer.istBestatigt %>
+              <input type="image" src="/hacken.png" width="22px" height="22px" alt="Y">
+            <% else %>
+            <input type="image" src="/loeschen.png" width="22px" height="22px" alt="N">
+              <% end %>
+              >
             <% if mitfahrer.fahrt.account == current_account %>
               <% if mitfahrer.istBestatigt %>
-                <%= link_to ":-1:", mitfahrer_bestaetigen_path(mitfahrer), method: :delete, remote: true %>
+                <%= link_to ":-1:" , mitfahrer_bestaetigen_path(mitfahrer), method: :delete, remote: true %>
               <% else %>
                 <%= link_to ":+1:", mitfahrer_bestaetigen_path(mitfahrer), method: :post, remote: true %>
               <% end %>
