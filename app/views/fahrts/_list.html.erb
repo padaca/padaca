@@ -26,8 +26,8 @@
         <td><%= fahrt.nach %></td>
         <td><%= fahrt_abfahrt_format(fahrt.abfahrt) %></td>
         <% if @options[:details] %>
-          <td><%= (fahrt.dauer || 0 / 60.0) %> h</td>
-          <td><%= "%.2f" % (fahrt.preisProMitfahrer || 0 / 100.0) %> €</td>
+          <td><%= ((fahrt.dauer || 0) / 60.0) %> h</td>
+          <td><%= "%.2f" % ((fahrt.preisProMitfahrer || 0) / 100.0) %> €</td>
           <td style="text-align:center;"><%= fahrt.maxMitfahrer %></td>
         <% end %>
         <% if @options[:account] %>

@@ -42,7 +42,7 @@
   <strong>Dauer:</strong>
   </td>
   <td align="right">
-  <%= @fahrt.dauer %>
+  <%= (@fahrt.dauer || 0) / 60 %> h
   </td>
 </tr>
 
@@ -51,7 +51,7 @@
   <strong>Preispromitfahrer:</strong>
   </td>
   <td align="right">
-  <%= @fahrt.preisProMitfahrer %>
+  <%= "%.2f" % ((@fahrt.preisProMitfahrer || nil) / 100) %> €
   </td>
 </tr>
 
