@@ -38,19 +38,11 @@
           <% end %>
 
           <td>
-            <% if mitfahrer.istBestatigt %>
-              <input type="image" src="/hacken.png" width="22px" height="22px" alt="Y">
-            <% else %>
-            <input type="image" src="/loeschen.png" width="22px" height="22px" alt="N">
+            <span class="mark <%= mitfahrer.istBestatigt ? 'marked' : '' %>">
+              <%= link_to_if(mitfahrer.fahrt.account == current_account, mitfahrer_bestaetigen_path(mitfahrer), method: (mitfahrer.istBestatigt ? :delete : :post), remote: true) do%>
+                <div class=markLocked>&nbsp;</div>
               <% end %>
-              >
-            <% if mitfahrer.fahrt.account == current_account %>
-              <% if mitfahrer.istBestatigt %>
-                <%= link_to ":-1:" , mitfahrer_bestaetigen_path(mitfahrer), method: :delete, remote: true %>
-              <% else %>
-                <%= link_to ":+1:", mitfahrer_bestaetigen_path(mitfahrer), method: :post, remote: true %>
-              <% end %>
-            <% end %>
+            </span>
           </td>
 
           <td class="actions">

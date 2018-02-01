@@ -35,13 +35,11 @@
         <% end %>
         <% if @options[:marked] %>
           <td>
-            <% if fahrt.istGespeichert %>
-            <input type="image" src="/hacken.png" width="22px" height="22px" alt="Y">
-              <%= link_to sanitize('&times;'), fahrt_speichern_path(fahrt), method: :delete, remote: true %>
-            <% else %>
-              <input type="image" src="/loeschen.png" width="22px" height="22px" alt="N">
-              <%= link_to 'Speichern', fahrt_speichern_path(fahrt), method: :post, remote: true %>
-            <% end %>
+            <span class="mark <%= fahrt.istGespeichert ? 'marked' : '' %>">
+              <%= link_to(fahrt_speichern_path(fahrt), method: (fahrt.istGespeichert ? :delete : :post), remote: true) do%>
+                <div class=mark></div>
+              <% end %>
+            </span>
           </td>
         <% end %>
         <% if @options[:new_from_marked] %>

@@ -369,3 +369,39 @@ li.unread a::after {
 .alert.alert-alert {
   color: red;
 }
+
+/* Marked Rides */
+.mark {
+
+    margin: auto;
+
+    a {
+        text-decoration: none;
+    }
+
+    .mark, .markLocked {
+        background-image: url('<%= asset_url('checkmarks.png') %>');
+        background-size: 36px;
+        background-repeat: no-repeat; 
+        background-position: -20px 5px; /* cross circle */
+        height: 24px;
+        width: 16px;
+    }
+
+    .mark:hover {
+        background-position: 0px 5px; /* check circle */
+    }
+
+}
+
+.mark.marked {
+
+    .mark, .markLocked {
+        background-position: 0px -17px; /* check circle filled */
+    }
+
+    .mark:hover {
+        background-position: -20px -17px; /* cross circle filled */
+    }
+
+}
