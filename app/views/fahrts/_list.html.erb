@@ -46,6 +46,9 @@
           <td class="actions"><%= link_to "Erneut Fahren", new_fahrt_path(fahrt: fahrt) %></td>
         <% else %>
           <td class="actions">
+            <% if current_account.id == fahrt.account.id %>
+              <%= link_to 'Mitfahrer anzeigen', mitfahrers_path(fahrt: fahrt) %>
+            <% end %>
             <%= link_to 'Show', fahrt %>
             <% if current_account.id == fahrt.account.id %>
               <%= link_to 'Edit', edit_fahrt_path(fahrt) %>
