@@ -10,7 +10,7 @@ class FahrtsController < ApplicationController
   # GET /fahrts.json
   def search
 
-    @fahrts = Fahrt.order(abfahrt: :asc).where.not(account: current_account)
+    @fahrts = Fahrt.order(abfahrt: :asc).where("account_id != ? and id not in (select fahrt_id from mitfahrers where account_id = ?)", current_account, current_account).includes(:account)
 
     @fahrts = @fahrts.where "abfahrt >= current_timestamp" unless params[:show_all]
 
@@ -20,6 +20,8 @@ class FahrtsController < ApplicationController
     end
 
     @fahrts = nil unless @params_check.any? # supress query
+
+    @notice = I18n.t("fahrts.search.noResults") if @fahrt.nil? or @fahrts.empty? and @params_check.any?
 
     @hide_table = @fahrts.nil? || @fahrts.empty? # supress table
 

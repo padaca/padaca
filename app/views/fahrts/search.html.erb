@@ -7,7 +7,11 @@
 <% end %>
 
 <div style="padding-top: 15px;">
-<% unless @hide_table %>
+<% if @hide_table %>
+  <% if @notice %>
+    <%= @notice %>
+  <% end %>
+<% else %>
   <%= render 'list' %>
 <% end %>
 </div>
