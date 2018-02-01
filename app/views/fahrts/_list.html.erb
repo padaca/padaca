@@ -26,8 +26,8 @@
         <td><%= fahrt.nach %></td>
         <td><%= fahrt_abfahrt_format(fahrt.abfahrt) %></td>
         <% if @options[:details] %>
-          <td><%= (fahrt.dauer / 60.0) %> h</td>
-          <td><%= "%.2f" % (fahrt.preisProMitfahrer / 100.0) %> €</td>
+          <td><%= ((fahrt.dauer || 0) / 60.0) %> h</td>
+          <td><%= "%.2f" % ((fahrt.preisProMitfahrer || 0) / 100.0) %> €</td>
           <td style="text-align:center;"><%= fahrt.maxMitfahrer %></td>
         <% end %>
         <% if @options[:account] %>
@@ -35,19 +35,20 @@
         <% end %>
         <% if @options[:marked] %>
           <td>
-            <% if fahrt.istGespeichert %>
-            <input type="image" src="/hacken.png" width="22px" height="22px" alt="Y">
-              <%= link_to sanitize('&times;'), fahrt_speichern_path(fahrt), method: :delete, remote: true %>
-            <% else %>
-              <input type="image" src="/loeschen.png" width="22px" height="22px" alt="N">
-              <%= link_to 'Speichern', fahrt_speichern_path(fahrt), method: :post, remote: true %>
-            <% end %>
+            <span class="mark <%= fahrt.istGespeichert ? 'marked' : '' %>">
+              <%= link_to(fahrt_speichern_path(fahrt), method: (fahrt.istGespeichert ? :delete : :post), remote: true) do%>
+                <div class=mark></div>
+              <% end %>
+            </span>
           </td>
         <% end %>
         <% if @options[:new_from_marked] %>
           <td class="actions"><%= link_to "Erneut Fahren", new_fahrt_path(fahrt: fahrt) %></td>
         <% else %>
           <td class="actions">
+            <% if current_account.id == fahrt.account.id %>
+              <%= link_to 'Mitfahrer anzeigen', mitfahrers_path(fahrt: fahrt) %>
+            <% end %>
             <%= link_to 'Show', fahrt %>
             <% if current_account.id == fahrt.account.id %>
               <%= link_to 'Edit', edit_fahrt_path(fahrt) %>

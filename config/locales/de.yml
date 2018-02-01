@@ -32,6 +32,8 @@ de:
     past:
       show: "alte Fahrten anzeigen"
       hide: "alte Fahrten ausblenden"
+    search:
+      noResults: "Keine Fahrten gefunden!"
   nachrichts:
     show:
       reply: "Antworten"
