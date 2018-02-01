@@ -127,12 +127,12 @@ class FahrtsController < ApplicationController
         new_from_marked: true,
       }
 
-      @markedOnly = markedOnly
-      @fahrts = Fahrt.where(account: current_account, istGespeichert: @markedOnly)
+      @markedOnly = markedOnly.is_a?(Array) ? markedOnly.all? : markedOnly
+      @fahrts = Fahrt.where(account: current_account, istGespeichert: markedOnly)
   end
 
   def unmarked
-      marked(false)
+      marked([false, nil])
       render 'marked'
   end
 
